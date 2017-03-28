@@ -19,11 +19,11 @@
 # make clean            Removes all generated files for all projects. Also
 #                       backup files (*~) are removed.
 # 
-# VIKTIG NOTERING: 	Om du ändrar vilka filer som finns med i projektet så måste du köra
+# VIKTIG NOTERING: 	Om du Ã¤ndrar vilka filer som finns med i projektet sÃ¥ mÃ¥ste du kÃ¶ra
 #                  	make lab.clean
 #
 # Syntesrapporten ligger i lab-synthdir/xst/synth/design.syr
-# Maprapporten (bra att kolla i för arearapportens skull) ligger i lab-synthdir/layoutdefault/design_map.mrp
+# Maprapporten (bra att kolla i fÃ¶r arearapportens skull) ligger i lab-synthdir/layoutdefault/design_map.mrp
 # Timingrapporten (skapas av make lab.timing) ligger i lab-synthdir/layoutdefault/design.trw
 
 # (Or proj2.simc, proj2.sim, etc, depending on the name of the
@@ -38,8 +38,8 @@ cpu.%: T= #dekoder_tb.vhd
 cpu.%: U=Nexys3.ucf
 
 
-# Det här är ett exempel på hur man kan skriva en testbänk som är
-# relevant, även om man kör en simulering i batchläge (make batchlab.simc)
+# Det hÃ¤r Ã¤r ett exempel pÃ¥ hur man kan skriva en testbÃ¤nk som Ã¤r
+# relevant, Ã¤ven om man kÃ¶r en simulering i batchlÃ¤ge (make batchlab.simc)
 #batchlab.%: S=lab.vhd leddriver.vhd
 #batchlab.%: T=batchlab_tb.vhd tb_print7seg.vhd
 #batchlab.%: U=lab.ucf
