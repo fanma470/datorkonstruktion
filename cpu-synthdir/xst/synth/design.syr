@@ -4,8 +4,8 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to tmpdir
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 
@@ -58,13 +58,22 @@ Optimization Goal                  : SPEED
 Parsing VHDL file "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" into library work
 Parsing entity <cpu>.
 Parsing architecture <behavioral> of entity <cpu>.
+Parsing VHDL file "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" into library work
+Parsing entity <umem>.
+Parsing architecture <behavioral> of entity <umem>.
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
 
 Elaborating entity <cpu> (architecture <behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 136: Assignment to lc ignored, since the identifier is never used
+
+Elaborating entity <umem> (architecture <behavioral>) from library <work>.
+WARNING:HDLCompiler:871 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 18: Using initial value -2147483648 for upc since it is never assigned
+WARNING:HDLCompiler:874 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 26: Value -2147483648 is out of target constraint range 0 to 31
+WARNING:HDLCompiler:321 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 211: Comparison between arrays of unequal length always returns FALSE.
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 201: Assignment to z ignored, since the identifier is never used
+WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/cpu.vhd" line 69. All outputs of instance <umemComp> of block <umem> are unconnected in block <cpu>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -72,14 +81,10 @@ WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/..
 
 Synthesizing Unit <cpu>.
     Related source file is "/edu/leoar200/Desktop/proj/cpu.vhd".
-WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2999 - Signal 'upc', unconnected in block 'cpu', is tied to its initial value.
-WARNING:Xst:2999 - Signal 'sel', unconnected in block 'cpu', is tied to its initial value.
-WARNING:Xst:2999 - Signal 'umem', unconnected in block 'cpu', is tied to its initial value.
     Summary:
 	no macro.
 Unit <cpu> synthesized.
-RTL-Simplification CPUSTAT: 0.01 
+RTL-Simplification CPUSTAT: 0.00 
 RTL-BasicInf CPUSTAT: 0.00 
 RTL-BasicOpt CPUSTAT: 0.00 
 RTL-Remain-Bus CPUSTAT: 0.00 
@@ -206,12 +211,12 @@ Cross Clock Domains Report:
 
 
 Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.19 secs
+Total CPU time to Xst completion: 3.15 secs
  
 --> 
 
 
-Total memory usage is 450352 kilobytes
+Total memory usage is 450396 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    6 (   0 filtered)

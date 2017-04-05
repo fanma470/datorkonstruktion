@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Xst" timeStamp="Tue Mar 28 16:38:52 2017">
+  <application stringID="Xst" timeStamp="Tue Apr  4 11:12:13 2017">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -24,7 +24,7 @@
         </row>
         <row stringID="row" value="3">
           <item stringID="variable" value="PATH"/>
-          <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/ISE//bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/common/bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/PlanAhead/bin:/sw/xilinx/ise_12.4i/ISE_DS/ISE/bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/ISE/sysgen/util:/sw/xilinx/ise_12.4i/ISE_DS/EDK/bin/lin64:/sw/texlive/2016/bin/x86_64-pc-linux-gnu:/sw/texlive/JabRef:/sw/java/jdk-current-x86_64/bin:/sw/matlab/8.4/bin:/usr/kerberos/bin:/bin:/usr/bin:/usr/X11R6/bin:/sw/local5/bin:/sw/local/bin"/>
+          <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/ISE//bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/common/bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/PlanAhead/bin:/sw/xilinx/ise_12.4i/ISE_DS/ISE/bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/ISE/sysgen/util:/sw/xilinx/ise_12.4i/ISE_DS/EDK/bin/lin64:/sw/texlive/2016/bin/x86_64-pc-linux-gnu:/sw/texlive/JabRef:/sw/java/jdk-current-x86_64/bin:/sw/matlab/9.1/bin:/usr/kerberos/bin:/bin:/usr/bin:/usr/X11R6/bin:/sw/local5/bin:/sw/local/bin"/>
         </row>
         <row stringID="row" value="4">
           <item stringID="variable" value="LMC_HOME"/>

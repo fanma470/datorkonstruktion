@@ -99,7 +99,7 @@ TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
 #Net "MemDB<15>"  LOC = T8  |  IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L31N_GCLK30_D15, Sch name = P30-DQ15
 
 ## SMSC ethernet PHY
-#Net "PhyRstn" LOC = P3 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L2N, Sch name = ETH-RST
+Net "PhyRstn" LOC = P3 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L2N, Sch name = ETH-RST
 #Net "PhyCrs" LOC = N3 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L1N_VREF, Sch name = ETH-CRS
 #Net "PhyCol" LOC = P4 | IOSTANDARD = LVCMOS33; #Bank = 3, pin name = IO_L2P, Sch name = ETH-COL
 #Net "PhyClk25Mhz" LOC = N4 | IOSTANDARD = LVCMOS33; #Unconnected if R172 is not loaded, Bank = 3, pin name = IO_L1P, Sch name = ETH-CLK25MHZ
@@ -173,7 +173,7 @@ TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
 #Net "sw<7>" LOC = T5 | IOSTANDARD = LVCMOS33; #Bank = MISC, pin name = IO_L48N_RDWR_B_VREF_2, Sch name = SW7
 
 ## Buttons
-Net "rst" LOC = B8 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L33P, Sch name = BTNS
+#Net "btns" LOC = B8 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L33P, Sch name = BTNS
 #Net "btnu" LOC = A8 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L33N, Sch name = BTNU
 #Net "btnl" LOC = C4 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L1N_VREF, Sch name = BTNL
 #Net "btnd" LOC = C9 | IOSTANDARD = LVCMOS33; #Bank = 0, pin name = IO_L34N_GCLK18, Sch name = BTND
