@@ -5,19 +5,40 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 18: Using initial value <arg fmt="%s" index="1">-2147483648</arg> for <arg fmt="%s" index="2">upc</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 63: Assignment to <arg fmt="%s" index="1">c</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="874" delta="old" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 26: Value <arg fmt="%s" index="1">-2147483648</arg> is out of target constraint range <arg fmt="%s" index="2">0 to 31</arg>
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 64: Assignment to <arg fmt="%s" index="1">o</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="321" delta="old" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 211: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 202: Assignment to <arg fmt="%s" index="1">c</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 201: Assignment to <arg fmt="%s" index="1">z</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 207: Assignment to <arg fmt="%s" index="1">z</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">/edu/leoar200/Desktop/proj/cpu.vhd</arg>&quot; line <arg fmt="%d" index="2">69</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">umemComp</arg>&gt; of block &lt;<arg fmt="%s" index="4">umem</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">cpu</arg>&gt;. Underlying logic will be removed.
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 208: Assignment to <arg fmt="%s" index="1">n</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 209: Assignment to <arg fmt="%s" index="1">c</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 210: Assignment to <arg fmt="%s" index="1">o</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 219: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../vga_motor.vhd" Line 172: Assignment to <arg fmt="%s" index="1">tileaddr</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">/edu/leoar200/Desktop/proj/cpu.vhd</arg>&quot; line <arg fmt="%d" index="2">73</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">umemComp</arg>&gt; of block &lt;<arg fmt="%s" index="4">umem</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">cpu</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">/edu/leoar200/Desktop/proj/top.vhd</arg>&quot; line <arg fmt="%d" index="2">66</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">cpuComp</arg>&gt; of block &lt;<arg fmt="%s" index="4">cpu</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">top</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="info" file="Xst" num="3010" delta="new" >&quot;<arg fmt="%s" index="1">/edu/leoar200/Desktop/proj/top.vhd</arg>&quot; line <arg fmt="%d" index="2">66</arg>: Output port &lt;<arg fmt="%s" index="3">vga_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">cpuComp</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 </messages>

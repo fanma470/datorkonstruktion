@@ -4,7 +4,7 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to tmpdir
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.10 secs
  
 --> 
@@ -42,7 +42,7 @@ Output File Name                   : "design.ngc"
 Target Device                      : xc6slx16-3-csg324
 
 ---- Source Options
-Top Module Name                    : cpu
+Top Module Name                    : top
 
 =========================================================================
 
@@ -55,44 +55,96 @@ Optimization Goal                  : SPEED
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Parsing VHDL file "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../top.vhd" into library work
+Parsing entity <top>.
+Parsing architecture <behavioral> of entity <top>.
 Parsing VHDL file "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" into library work
 Parsing entity <cpu>.
 Parsing architecture <behavioral> of entity <cpu>.
 Parsing VHDL file "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" into library work
 Parsing entity <umem>.
 Parsing architecture <behavioral> of entity <umem>.
+Parsing VHDL file "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../vga_motor.vhd" into library work
+Parsing entity <VGA_MOTOR>.
+Parsing architecture <Behavioral> of entity <vga_motor>.
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
 
+Elaborating entity <top> (architecture <behavioral>) from library <work>.
+
 Elaborating entity <cpu> (architecture <behavioral>) from library <work>.
 
 Elaborating entity <umem> (architecture <behavioral>) from library <work>.
-WARNING:HDLCompiler:871 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 18: Using initial value -2147483648 for upc since it is never assigned
-WARNING:HDLCompiler:874 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 26: Value -2147483648 is out of target constraint range 0 to 31
-WARNING:HDLCompiler:321 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 211: Comparison between arrays of unequal length always returns FALSE.
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 201: Assignment to z ignored, since the identifier is never used
-WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/cpu.vhd" line 69. All outputs of instance <umemComp> of block <umem> are unconnected in block <cpu>. Underlying logic will be removed.
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 63: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 64: Assignment to o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 202: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 207: Assignment to z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 208: Assignment to n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 209: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 210: Assignment to o ignored, since the identifier is never used
+WARNING:HDLCompiler:321 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 219: Comparison between arrays of unequal length always returns FALSE.
+
+Elaborating entity <VGA_MOTOR> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../vga_motor.vhd" Line 172: Assignment to tileaddr ignored, since the identifier is never used
+WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/cpu.vhd" line 73. All outputs of instance <umemComp> of block <umem> are unconnected in block <cpu>. Underlying logic will be removed.
+WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/top.vhd" line 66. All outputs of instance <cpuComp> of block <cpu> are unconnected in block <top>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
-Synthesizing Unit <cpu>.
-    Related source file is "/edu/leoar200/Desktop/proj/cpu.vhd".
+Synthesizing Unit <top>.
+    Related source file is "/edu/leoar200/Desktop/proj/top.vhd".
+INFO:Xst:3010 - "/edu/leoar200/Desktop/proj/top.vhd" line 66: Output port <vga_data> of the instance <cpuComp> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
-Unit <cpu> synthesized.
+Unit <top> synthesized.
+
+Synthesizing Unit <VGA_MOTOR>.
+    Related source file is "/edu/leoar200/Desktop/proj/vga_motor.vhd".
+    Found 10-bit register for signal <Xpixel>.
+    Found 1-bit register for signal <Hsync>.
+    Found 10-bit register for signal <Ypixel>.
+    Found 1-bit register for signal <Vsync>.
+    Found 1-bit register for signal <blank>.
+    Found 8-bit register for signal <tilePixel>.
+    Found 2-bit register for signal <ClkDiv>.
+    Found 2-bit adder for signal <ClkDiv[1]_GND_7_o_add_0_OUT> created at line 1241.
+    Found 10-bit adder for signal <Xpixel[9]_GND_7_o_add_5_OUT> created at line 75.
+    Found 10-bit adder for signal <Ypixel[9]_GND_7_o_add_13_OUT> created at line 110.
+    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_10_o> created at line 89
+    Found 10-bit comparator greater for signal <Xpixel[9]_PWR_10_o_LessThan_11_o> created at line 89
+    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_19_o> created at line 125
+    Found 10-bit comparator greater for signal <Ypixel[9]_GND_7_o_LessThan_20_o> created at line 125
+    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_21_o> created at line 144
+    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_22_o> created at line 144
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  33 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+Unit <VGA_MOTOR> synthesized.
 RTL-Simplification CPUSTAT: 0.00 
-RTL-BasicInf CPUSTAT: 0.00 
+RTL-BasicInf CPUSTAT: 0.13 
 RTL-BasicOpt CPUSTAT: 0.00 
 RTL-Remain-Bus CPUSTAT: 0.00 
 
 =========================================================================
 HDL Synthesis Report
 
-Found no macro
+Macro Statistics
+# Adders/Subtractors                                   : 3
+ 10-bit adder                                          : 2
+ 2-bit adder                                           : 1
+# Registers                                            : 7
+ 1-bit register                                        : 3
+ 10-bit register                                       : 2
+ 2-bit register                                        : 1
+ 8-bit register                                        : 1
+# Comparators                                          : 6
+ 10-bit comparator greater                             : 6
+
 =========================================================================
 
 =========================================================================
@@ -100,28 +152,47 @@ Found no macro
 =========================================================================
 
 
+Synthesizing (advanced) Unit <VGA_MOTOR>.
+The following registers are absorbed into counter <ClkDiv>: 1 register on signal <ClkDiv>.
+The following registers are absorbed into counter <Xpixel>: 1 register on signal <Xpixel>.
+The following registers are absorbed into counter <Ypixel>: 1 register on signal <Ypixel>.
+Unit <VGA_MOTOR> synthesized (advanced).
+
 =========================================================================
 Advanced HDL Synthesis Report
 
-Found no macro
+Macro Statistics
+# Counters                                             : 3
+ 10-bit up counter                                     : 2
+ 2-bit up counter                                      : 1
+# Registers                                            : 11
+ Flip-Flops                                            : 11
+# Comparators                                          : 6
+ 10-bit comparator greater                             : 6
+
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
 
-Optimizing unit <cpu> ...
+Optimizing unit <top> ...
+
+Optimizing unit <VGA_MOTOR> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block cpu, actual ratio is 0.
+Found area constraint ratio of 100 (+ 0) on block top, actual ratio is 0.
 
 Final Macro Processing ...
 
 =========================================================================
 Final Register Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 33
+ Flip-Flops                                            : 33
+
 =========================================================================
 
 =========================================================================
@@ -143,6 +214,27 @@ Top Level Output File Name         : design.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
+# BELS                             : 110
+#      GND                         : 1
+#      INV                         : 3
+#      LUT1                        : 18
+#      LUT2                        : 4
+#      LUT3                        : 10
+#      LUT4                        : 22
+#      LUT5                        : 2
+#      LUT6                        : 11
+#      MUXCY                       : 18
+#      VCC                         : 1
+#      XORCY                       : 20
+# FlipFlops/Latches                : 33
+#      FD                          : 20
+#      FDE                         : 3
+#      FDR                         : 10
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 19
+#      IBUF                        : 9
+#      OBUF                        : 10
 
 Device utilization summary:
 ---------------------------
@@ -151,19 +243,23 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
+ Number of Slice Registers:              33  out of  18224     0%  
+ Number of Slice LUTs:                   70  out of   9112     0%  
+    Number used as Logic:                70  out of   9112     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:      0
-   Number with an unused Flip Flop:       0  out of      0         
-   Number with an unused LUT:             0  out of      0         
-   Number of fully used LUT-FF pairs:     0  out of      0         
-   Number of unique control sets:         0
+ Number of LUT Flip Flop pairs used:     78
+   Number with an unused Flip Flop:      45  out of     78    57%  
+   Number with an unused LUT:             8  out of     78    10%  
+   Number of fully used LUT-FF pairs:    25  out of     78    32%  
+   Number of unique control sets:         4
 
 IO Utilization: 
- Number of IOs:                           2
- Number of bonded IOBs:                   0  out of    232     0%  
+ Number of IOs:                          24
+ Number of bonded IOBs:                  20  out of    232     8%  
 
 Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
 
 ---------------------------
 Partition Resource Summary:
@@ -183,7 +279,11 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-No clock signals found in this design
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 33    |
+-----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -193,9 +293,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: No path found
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: No path found
+   Minimum period: 3.817ns (Maximum Frequency: 261.972MHz)
+   Minimum input arrival time before clock: 2.268ns
+   Maximum output required time after clock: 3.597ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -203,22 +303,92 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.817ns (frequency: 261.972MHz)
+  Total number of paths / destination ports: 580 / 36
+-------------------------------------------------------------------------
+Delay:               3.817ns (Levels of Logic = 3)
+  Source:            vga_motorComp/Xpixel_1 (FF)
+  Destination:       vga_motorComp/Xpixel_9 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: vga_motorComp/Xpixel_1 to vga_motorComp/Xpixel_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               5   0.447   1.079  vga_motorComp/Xpixel_1 (vga_motorComp/Xpixel_1)
+     LUT6:I0->O            2   0.203   0.721  vga_motorComp/_n0064_SW0 (N8)
+     LUT6:I4->O           10   0.203   0.857  vga_motorComp/_n0064 (vga_motorComp/_n0064)
+     LUT4:I3->O            1   0.205   0.000  vga_motorComp/Xpixel_9_rstpot (vga_motorComp/Xpixel_9_rstpot)
+     FD:D                      0.102          vga_motorComp/Xpixel_9
+    ----------------------------------------
+    Total                      3.817ns (1.160ns logic, 2.657ns route)
+                                       (30.4% logic, 69.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              2.268ns (Levels of Logic = 1)
+  Source:            rst (PAD)
+  Destination:       vga_motorComp/ClkDiv_1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to vga_motorComp/ClkDiv_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.616  rst_IBUF (rst_IBUF)
+     FDR:R                     0.430          vga_motorComp/ClkDiv_0
+    ----------------------------------------
+    Total                      2.268ns (1.652ns logic, 0.616ns route)
+                                       (72.8% logic, 27.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            vga_motorComp/tilePixel_7 (FF)
+  Destination:       vgaRed<2> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: vga_motorComp/tilePixel_7 to vgaRed<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              1   0.447   0.579  vga_motorComp/tilePixel_7 (vga_motorComp/tilePixel_7)
+     OBUF:I->O                 2.571          vgaRed_2_OBUF (vgaRed<2>)
+    ----------------------------------------
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
 
 Cross Clock Domains Report:
 --------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.817|         |         |         |
+---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.15 secs
+Total CPU time to Xst completion: 3.60 secs
  
 --> 
 
 
-Total memory usage is 450396 kilobytes
+Total memory usage is 460136 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    6 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 
