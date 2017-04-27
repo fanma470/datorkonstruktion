@@ -217,7 +217,7 @@ begin
         sr <= "0000";
       else
         if ar = "0000" then
-          sr <= sr or "1000";          -- z
+          sr <= sr or "1000";          -- z UNEQUAL LENGTH?
         else
           sr <= sr and "0111";
         end if;

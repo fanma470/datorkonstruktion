@@ -76,7 +76,7 @@ begin
   vga_motorComp : vga_motor port map (
     clk => clk,
     rst => rst,
-    --data => vga_data,
+    --data => vga_data, --TODO ÄNDRA TILL DENNA
     data => sw,
     vgared => vgared,
     vgagreen => vgagreen,

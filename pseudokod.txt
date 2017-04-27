@@ -1,0 +1,31 @@
+liten skiss på hur programmet kan se ut
+//föreslår att vi har variabler xcoord, ycoord sparade längst ner i
+progminnet, eller iom att vårt program är så simpelt kanske tom ha
+dedikerat grx-register för dom
+//behöver även en variabel för om pennan är nedtryckt eller ej - we
+
+init:
+	-se till att x = y = data = 0
+
+main_loop:
+	-hämta info om de 5 knapparna, tex ladda in det värdet i
+	ackumulatorn
+	-jämför värdet i ackumulatorn för att ta reda på vilken knapp
+	som är nedtryckt
+	(t.ex:)
+	- om nedåt är detryckt hoppa till "nedåt"
+	- om mittenknapp hoppa till "mitten"
+	(repetera för alla olika knappar)
+
+
+nedåt:
+	- ladda ycoord från minne till ackumulatorn
+	- öka ycoord med 1
+	-skicka ut "00000010" på data-signalen
+	-skicka ut ycoord på data-signalen
+	-hoppa till main_loop
+
+mitten:
+	-lägg "00000011" på data-signalen
+	-lägg we på data-signalen
+	hoppa till main_loop

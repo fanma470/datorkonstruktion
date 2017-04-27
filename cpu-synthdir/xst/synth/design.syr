@@ -4,8 +4,8 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to tmpdir
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> 
 
@@ -87,7 +87,6 @@ WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/..
 WARNING:HDLCompiler:321 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 219: Comparison between arrays of unequal length always returns FALSE.
 
 Elaborating entity <VGA_MOTOR> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../vga_motor.vhd" Line 172: Assignment to tileaddr ignored, since the identifier is never used
 WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/cpu.vhd" line 73. All outputs of instance <umemComp> of block <umem> are unconnected in block <cpu>. Underlying logic will be removed.
 WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/top.vhd" line 66. All outputs of instance <cpuComp> of block <cpu> are unconnected in block <top>. Underlying logic will be removed.
 
@@ -104,29 +103,44 @@ Unit <top> synthesized.
 
 Synthesizing Unit <VGA_MOTOR>.
     Related source file is "/edu/leoar200/Desktop/proj/vga_motor.vhd".
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <picMem>, simulation mismatch.
+    Found 6144x8-bit dual-port RAM <Mram_picMem> for signal <picMem>.
+    Found 8-bit register for signal <data_buf>.
+    Found 10-bit register for signal <xcoord>.
+    Found 10-bit register for signal <ycoord>.
+    Found 1-bit register for signal <we>.
+    Found 8-bit register for signal <tilePixel>.
+    Found 2-bit register for signal <ClkDiv>.
     Found 10-bit register for signal <Xpixel>.
     Found 1-bit register for signal <Hsync>.
     Found 10-bit register for signal <Ypixel>.
     Found 1-bit register for signal <Vsync>.
     Found 1-bit register for signal <blank>.
-    Found 8-bit register for signal <tilePixel>.
-    Found 2-bit register for signal <ClkDiv>.
-    Found 2-bit adder for signal <ClkDiv[1]_GND_7_o_add_0_OUT> created at line 1241.
-    Found 10-bit adder for signal <Xpixel[9]_GND_7_o_add_5_OUT> created at line 75.
-    Found 10-bit adder for signal <Ypixel[9]_GND_7_o_add_13_OUT> created at line 110.
-    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_10_o> created at line 89
-    Found 10-bit comparator greater for signal <Xpixel[9]_PWR_10_o_LessThan_11_o> created at line 89
-    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_19_o> created at line 125
-    Found 10-bit comparator greater for signal <Ypixel[9]_GND_7_o_LessThan_20_o> created at line 125
-    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_21_o> created at line 144
-    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_22_o> created at line 144
+    Found 2-bit register for signal <command>.
+    Found 20-bit adder for signal <pMemAddr> created at line 99.
+    Found 20-bit adder for signal <n0101> created at line 106.
+    Found 2-bit adder for signal <ClkDiv[1]_GND_7_o_add_32_OUT> created at line 1241.
+    Found 10-bit adder for signal <Xpixel[9]_GND_7_o_add_37_OUT> created at line 149.
+    Found 10-bit adder for signal <Ypixel[9]_GND_7_o_add_45_OUT> created at line 184.
+    Found 7x7-bit multiplier for signal <Ypixel[9]_PWR_10_o_MuLt_24_OUT> created at line 1399.
+    Found 10x7-bit multiplier for signal <ycoord[9]_PWR_10_o_MuLt_26_OUT> created at line 1399.
+    Found 4x2-bit Read Only RAM for signal <_n0147>
+    Found 8-bit comparator equal for signal <n0000> created at line 74
+    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_42_o> created at line 163
+    Found 10-bit comparator greater for signal <Xpixel[9]_PWR_10_o_LessThan_43_o> created at line 163
+    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_51_o> created at line 199
+    Found 10-bit comparator greater for signal <Ypixel[9]_GND_7_o_LessThan_52_o> created at line 199
+    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_53_o> created at line 218
+    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_54_o> created at line 218
     Summary:
-	inferred   3 Adder/Subtractor(s).
-	inferred  33 D-type flip-flop(s).
-	inferred   6 Comparator(s).
+	inferred   2 RAM(s).
+	inferred   2 Multiplier(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred  64 D-type flip-flop(s).
+	inferred   7 Comparator(s).
 Unit <VGA_MOTOR> synthesized.
-RTL-Simplification CPUSTAT: 0.00 
-RTL-BasicInf CPUSTAT: 0.13 
+RTL-Simplification CPUSTAT: 0.04 
+RTL-BasicInf CPUSTAT: 0.15 
 RTL-BasicOpt CPUSTAT: 0.00 
 RTL-Remain-Bus CPUSTAT: 0.00 
 
@@ -134,16 +148,24 @@ RTL-Remain-Bus CPUSTAT: 0.00
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 3
+# RAMs                                                 : 2
+ 4x2-bit single-port Read Only RAM                     : 1
+ 6144x8-bit dual-port RAM                              : 1
+# Multipliers                                          : 2
+ 10x7-bit multiplier                                   : 1
+ 7x7-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 5
  10-bit adder                                          : 2
  2-bit adder                                           : 1
-# Registers                                            : 7
- 1-bit register                                        : 3
- 10-bit register                                       : 2
- 2-bit register                                        : 1
- 8-bit register                                        : 1
-# Comparators                                          : 6
+ 20-bit adder                                          : 2
+# Registers                                            : 12
+ 1-bit register                                        : 4
+ 10-bit register                                       : 4
+ 2-bit register                                        : 2
+ 8-bit register                                        : 2
+# Comparators                                          : 7
  10-bit comparator greater                             : 6
+ 8-bit comparator equal                                : 1
 
 =========================================================================
 
@@ -151,24 +173,72 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+WARNING:Xst:2404 -  FFs/Latches <xcoord<9:8>> (without init value) have a constant value of 0 in block <VGA_MOTOR>.
+WARNING:Xst:2404 -  FFs/Latches <ycoord<9:8>> (without init value) have a constant value of 0 in block <VGA_MOTOR>.
 
 Synthesizing (advanced) Unit <VGA_MOTOR>.
 The following registers are absorbed into counter <ClkDiv>: 1 register on signal <ClkDiv>.
 The following registers are absorbed into counter <Xpixel>: 1 register on signal <Xpixel>.
 The following registers are absorbed into counter <Ypixel>: 1 register on signal <Ypixel>.
+	Multiplier <Mmult_Ypixel[9]_PWR_10_o_MuLt_24_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_pMemAddr_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT>.
+	Multiplier <Mmult_ycoord[9]_PWR_10_o_MuLt_26_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_n0101_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_ycoord[9]_PWR_10_o_MuLt_26_OUT>.
+	The following registers are also absorbed by the MAC: <ycoord> in block <VGA_MOTOR>, <xcoord> in block <VGA_MOTOR>.
+INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorbing the following register(s): <tilePixel>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 6144-word x 8-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <we>            | high     |
+    |     addrA          | connected to signal <n0101>         |          |
+    |     diA            | connected to signal <data>          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 6144-word x 8-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     addrB          | connected to signal <pMemAddr>      |          |
+    |     doB            | connected to signal <tilePixel>     |          |
+    |     dorstB         | connected to signal <blank>         | high     |
+    | reset value        | 00000000                                       |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3048 - The small RAM <Mram__n0147> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 2-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <data<1:0>>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
 Unit <VGA_MOTOR> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
+# RAMs                                                 : 2
+ 4x2-bit single-port distributed Read Only RAM         : 1
+ 6144x8-bit dual-port block RAM                        : 1
+# MACs                                                 : 2
+ 7x7-to-13-bit MAC                                     : 1
+ 9x7-to-13-bit MAC                                     : 1
 # Counters                                             : 3
  10-bit up counter                                     : 2
  2-bit up counter                                      : 1
-# Registers                                            : 11
- Flip-Flops                                            : 11
-# Comparators                                          : 6
+# Registers                                            : 14
+ Flip-Flops                                            : 14
+# Comparators                                          : 7
  10-bit comparator greater                             : 6
+ 8-bit comparator equal                                : 1
 
 =========================================================================
 
@@ -190,8 +260,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 33
- Flip-Flops                                            : 33
+# Registers                                            : 36
+ Flip-Flops                                            : 36
 
 =========================================================================
 
@@ -214,27 +284,33 @@ Top Level Output File Name         : design.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 110
+# BELS                             : 86
 #      GND                         : 1
 #      INV                         : 3
 #      LUT1                        : 18
-#      LUT2                        : 4
-#      LUT3                        : 10
-#      LUT4                        : 22
-#      LUT5                        : 2
-#      LUT6                        : 11
+#      LUT2                        : 2
+#      LUT3                        : 3
+#      LUT4                        : 2
+#      LUT5                        : 4
+#      LUT6                        : 13
 #      MUXCY                       : 18
+#      MUXF7                       : 1
 #      VCC                         : 1
 #      XORCY                       : 20
-# FlipFlops/Latches                : 33
-#      FD                          : 20
-#      FDE                         : 3
-#      FDR                         : 10
+# FlipFlops/Latches                : 36
+#      FD                          : 1
+#      FDE                         : 11
+#      FDR                         : 2
+#      FDRE                        : 22
+# RAMS                             : 4
+#      RAMB16BWER                  : 4
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 19
 #      IBUF                        : 9
 #      OBUF                        : 10
+# DSPs                             : 2
+#      DSP48A1                     : 2
 
 Device utilization summary:
 ---------------------------
@@ -243,23 +319,26 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              33  out of  18224     0%  
- Number of Slice LUTs:                   70  out of   9112     0%  
-    Number used as Logic:                70  out of   9112     0%  
+ Number of Slice Registers:              36  out of  18224     0%  
+ Number of Slice LUTs:                   45  out of   9112     0%  
+    Number used as Logic:                45  out of   9112     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     78
-   Number with an unused Flip Flop:      45  out of     78    57%  
-   Number with an unused LUT:             8  out of     78    10%  
-   Number of fully used LUT-FF pairs:    25  out of     78    32%  
-   Number of unique control sets:         4
+ Number of LUT Flip Flop pairs used:     62
+   Number with an unused Flip Flop:      26  out of     62    41%  
+   Number with an unused LUT:            17  out of     62    27%  
+   Number of fully used LUT-FF pairs:    19  out of     62    30%  
+   Number of unique control sets:         7
 
 IO Utilization: 
  Number of IOs:                          24
  Number of bonded IOBs:                  20  out of    232     8%  
 
 Specific Feature Utilization:
+ Number of Block RAM/FIFO:                4  out of     32    12%  
+    Number using Block RAM only:          4
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+ Number of DSP48A1s:                      2  out of     32     6%  
 
 ---------------------------
 Partition Resource Summary:
@@ -282,7 +361,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 33    |
+clk                                | BUFGP                  | 42    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -293,9 +372,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 3.817ns (Maximum Frequency: 261.972MHz)
-   Minimum input arrival time before clock: 2.268ns
-   Maximum output required time after clock: 3.597ns
+   Minimum period: 6.754ns (Maximum Frequency: 148.070MHz)
+   Minimum input arrival time before clock: 5.915ns
+   Maximum output required time after clock: 5.000ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -304,65 +383,66 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 3.817ns (frequency: 261.972MHz)
-  Total number of paths / destination ports: 580 / 36
+  Clock period: 6.754ns (frequency: 148.070MHz)
+  Total number of paths / destination ports: 1221 / 216
 -------------------------------------------------------------------------
-Delay:               3.817ns (Levels of Logic = 3)
-  Source:            vga_motorComp/Xpixel_1 (FF)
-  Destination:       vga_motorComp/Xpixel_9 (FF)
+Delay:               6.754ns (Levels of Logic = 1)
+  Source:            vga_motorComp/Ypixel_5 (FF)
+  Destination:       vga_motorComp/Mram_picMem4 (RAM)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: vga_motorComp/Xpixel_1 to vga_motorComp/Xpixel_9
+  Data Path: vga_motorComp/Ypixel_5 to vga_motorComp/Mram_picMem4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               5   0.447   1.079  vga_motorComp/Xpixel_1 (vga_motorComp/Xpixel_1)
-     LUT6:I0->O            2   0.203   0.721  vga_motorComp/_n0064_SW0 (N8)
-     LUT6:I4->O           10   0.203   0.857  vga_motorComp/_n0064 (vga_motorComp/_n0064)
-     LUT4:I3->O            1   0.205   0.000  vga_motorComp/Xpixel_9_rstpot (vga_motorComp/Xpixel_9_rstpot)
-     FD:D                      0.102          vga_motorComp/Xpixel_9
+     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_5 (vga_motorComp/Ypixel_5)
+     DSP48A1:A2->P12       4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT (vga_motorComp/pMemAddr<12>)
+     RAMB16BWER:ADDRB13        0.350          vga_motorComp/Mram_picMem4
     ----------------------------------------
-    Total                      3.817ns (1.160ns logic, 2.657ns route)
-                                       (30.4% logic, 69.6% route)
+    Total                      6.754ns (5.357ns logic, 1.397ns route)
+                                       (79.3% logic, 20.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 10 / 10
+  Total number of paths / destination ports: 167 / 51
 -------------------------------------------------------------------------
-Offset:              2.268ns (Levels of Logic = 1)
-  Source:            rst (PAD)
-  Destination:       vga_motorComp/ClkDiv_1 (FF)
+Offset:              5.915ns (Levels of Logic = 4)
+  Source:            sw<3> (PAD)
+  Destination:       vga_motorComp/command_1 (FF)
   Destination Clock: clk rising
 
-  Data Path: rst to vga_motorComp/ClkDiv_1
+  Data Path: sw<3> to vga_motorComp/command_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.222   0.616  rst_IBUF (rst_IBUF)
-     FDR:R                     0.430          vga_motorComp/ClkDiv_0
+     IBUF:I->O             6   1.222   1.109  sw_3_IBUF (sw_3_IBUF)
+     LUT6:I0->O            3   0.203   1.015  vga_motorComp/n000081 (vga_motorComp/n00008)
+     LUT6:I0->O            4   0.203   0.912  vga_motorComp/n000083 (vga_motorComp/n0000)
+     LUT3:I0->O            2   0.205   0.616  vga_motorComp/_n01561 (vga_motorComp/_n0156)
+     FDRE:R                    0.430          vga_motorComp/command_0
     ----------------------------------------
-    Total                      2.268ns (1.652ns logic, 0.616ns route)
-                                       (72.8% logic, 27.2% route)
+    Total                      5.915ns (2.263ns logic, 3.652ns route)
+                                       (38.3% logic, 61.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 10 / 10
 -------------------------------------------------------------------------
-Offset:              3.597ns (Levels of Logic = 1)
-  Source:            vga_motorComp/tilePixel_7 (FF)
+Offset:              5.000ns (Levels of Logic = 1)
+  Source:            vga_motorComp/Mram_picMem4 (RAM)
   Destination:       vgaRed<2> (PAD)
   Source Clock:      clk rising
 
-  Data Path: vga_motorComp/tilePixel_7 to vgaRed<2>
+  Data Path: vga_motorComp/Mram_picMem4 to vgaRed<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              1   0.447   0.579  vga_motorComp/tilePixel_7 (vga_motorComp/tilePixel_7)
+     RAMB16BWER:CLKB->DOB1    1   1.850   0.579  vga_motorComp/Mram_picMem4 (vgaRed_2_OBUF)
      OBUF:I->O                 2.571          vgaRed_2_OBUF (vgaRed<2>)
     ----------------------------------------
-    Total                      3.597ns (3.018ns logic, 0.579ns route)
-                                       (83.9% logic, 16.1% route)
+    Total                      5.000ns (4.421ns logic, 0.579ns route)
+                                       (88.4% logic, 11.6% route)
 
 =========================================================================
 
@@ -374,21 +454,21 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    3.817|         |         |         |
+clk            |    6.754|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.60 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 5.49 secs
  
 --> 
 
 
-Total memory usage is 460136 kilobytes
+Total memory usage is 461596 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   12 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings :   14 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

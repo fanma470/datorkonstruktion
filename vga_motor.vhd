@@ -33,19 +33,93 @@ architecture Behavioral of VGA_MOTOR is
   signal	Clk25		: std_logic;			-- One pulse width 25 MHz signal
 		
   signal 	tilePixel       : std_logic_vector(7 downto 0);	-- Tile pixel data
-  signal	tileAddr	: unsigned(10 downto 0);	-- Tile address
+  signal	pMemAddr	: unsigned(19 downto 0);	-- Tile address
 
   signal        blank           : std_logic;                    -- blanking signal
-	
+  signal        we              : std_logic := '0';             -- write enable
 
+  signal data_buf : std_logic_vector(7 downto 0) := x"00";  -- for storing previous data value
+  signal command : std_logic_vector(1 downto 0) := "00";
+  -- command 0: NOP
+  -- command 1: sätt x
+  -- command 2: sätt y
+  -- command 3: sätt we
+
+
+  --upplösning 80/60 ger 19200 bytes av bilddata vilket är lagom?
+  -- då blir varje pixel 4ggr så stor
+  --|00...................79,0|
+  --|0,1..................79,1|
+  --           ...
+  --|....................79,59|
+  
   -- Tile memory type
-  type ram_t is array (0 to 2047) of std_logic_vector(7 downto 0);
+  type minne is array (0 to (2048*3 - 1)) of std_logic_vector(7 downto 0);
 
--- Tile memory
-  signal tileMem : ram_t := (others => "00101100");
-		  
+-- pic memory
+  signal picMem : minne := (others => x"FF");
+  signal xcoord : unsigned(9 downto 0);
+  signal ycoord : unsigned(9 downto 0);
+  
 begin
 
+
+  --Hanterar kommadon från cpu eller whatever
+  --kollar om data-signal har ändrats, isf
+  --om commando = 00 (standardläget) uppdaterar vi commando enl data
+  -- nästa gång data ändras gör vi det tidigare valda commandot mha nya datasignalen
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if data /= data_buf then
+        if command = "00" then
+          case data is
+            when x"00" => command <= "00";  --NOP
+            when x"01" => command <= "01";  --x
+            when x"02" => command <= "10";  --y
+            when x"03" => command <= "11";  --we
+            when others => null;
+          end case;
+          data_buf <= data;
+        else
+          case command is
+            when "01" => Xcoord <= unsigned("0000000000" or data);
+            when "10" => Ycoord <= unsigned("0000000000" or data);
+            when "11" => we <= data(0);
+            when others => null;
+          end case;
+          command <= "00";
+          data_buf <= data;
+        end if;
+      end if;
+    end if;
+  end process;
+
+  -- picture memory address composite
+  pMemAddr <= Ypixel/8*80 + Xpixel/8;
+
+  --skriv till bildminnet
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if we = '1' then
+        picMem(to_integer(Ycoord*80 + Xcoord)) <= data;
+      end if;
+    end if;
+  end process;
+
+  --skicka ut ratt pixel eller blank
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if blank = '0' then
+        tilePixel <= picMem(to_integer(pMemAddr));
+      else
+        tilePixel <= (others => '0');
+      end if;
+    end if;
+  end process;
+    
   -- Clock divisor
   -- Divide system clock (100 MHz) by 4
   process(clk)
@@ -149,27 +223,9 @@ begin
       end if;
     end if;
   end process;
-  
-
 
   
-  -- Tile memory
-  process(clk)
-  begin
-    if rising_edge(clk) then
-      if (blank = '0') then
-        --tilePixel <= tileMem(to_integer(tileAddr));
-        tilePixel <= data;
-      else
-        tilePixel <= (others => '0');
-      end if;
-    end if;
-  end process;
-	
 
-
-  -- Tile memory address composite
-  tileAddr <= unsigned(data(4 downto 0)) & Ypixel(4 downto 2) & Xpixel(4 downto 2);
 
 
   -- Picture memory address composite
@@ -185,6 +241,7 @@ begin
   vgaGreen(0)   <= tilePixel(2);
   vgaBlue(2) 	<= tilePixel(1);
   vgaBlue(1) 	<= tilePixel(0);
+  --vgaBlue(1) 	<= '1';
 
 
 end Behavioral;
