@@ -4,8 +4,8 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to tmpdir
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> 
 
@@ -79,12 +79,11 @@ Elaborating entity <cpu> (architecture <behavioral>) from library <work>.
 Elaborating entity <umem> (architecture <behavioral>) from library <work>.
 WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 63: Assignment to c ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 64: Assignment to o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 202: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 207: Assignment to z ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 208: Assignment to n ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 209: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 210: Assignment to o ignored, since the identifier is never used
-WARNING:HDLCompiler:321 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 219: Comparison between arrays of unequal length always returns FALSE.
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 203: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 208: Assignment to z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 209: Assignment to n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 210: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 211: Assignment to o ignored, since the identifier is never used
 
 Elaborating entity <VGA_MOTOR> (architecture <Behavioral>) from library <work>.
 WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/cpu.vhd" line 73. All outputs of instance <umemComp> of block <umem> are unconnected in block <cpu>. Underlying logic will be removed.
@@ -118,13 +117,13 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <picMem>
     Found 1-bit register for signal <blank>.
     Found 2-bit register for signal <command>.
     Found 20-bit adder for signal <pMemAddr> created at line 99.
-    Found 20-bit adder for signal <n0101> created at line 106.
+    Found 20-bit adder for signal <n0102> created at line 106.
     Found 2-bit adder for signal <ClkDiv[1]_GND_7_o_add_32_OUT> created at line 1241.
     Found 10-bit adder for signal <Xpixel[9]_GND_7_o_add_37_OUT> created at line 149.
     Found 10-bit adder for signal <Ypixel[9]_GND_7_o_add_45_OUT> created at line 184.
     Found 7x7-bit multiplier for signal <Ypixel[9]_PWR_10_o_MuLt_24_OUT> created at line 1399.
     Found 10x7-bit multiplier for signal <ycoord[9]_PWR_10_o_MuLt_26_OUT> created at line 1399.
-    Found 4x2-bit Read Only RAM for signal <_n0147>
+    Found 4x2-bit Read Only RAM for signal <_n0156>
     Found 8-bit comparator equal for signal <n0000> created at line 74
     Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_42_o> created at line 163
     Found 10-bit comparator greater for signal <Xpixel[9]_PWR_10_o_LessThan_43_o> created at line 163
@@ -181,7 +180,7 @@ The following registers are absorbed into counter <ClkDiv>: 1 register on signal
 The following registers are absorbed into counter <Xpixel>: 1 register on signal <Xpixel>.
 The following registers are absorbed into counter <Ypixel>: 1 register on signal <Ypixel>.
 	Multiplier <Mmult_Ypixel[9]_PWR_10_o_MuLt_24_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_pMemAddr_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT>.
-	Multiplier <Mmult_ycoord[9]_PWR_10_o_MuLt_26_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_n0101_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_ycoord[9]_PWR_10_o_MuLt_26_OUT>.
+	Multiplier <Mmult_ycoord[9]_PWR_10_o_MuLt_26_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_n0102_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_ycoord[9]_PWR_10_o_MuLt_26_OUT>.
 	The following registers are also absorbed by the MAC: <ycoord> in block <VGA_MOTOR>, <xcoord> in block <VGA_MOTOR>.
 INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorbing the following register(s): <tilePixel>
     -----------------------------------------------------------------------
@@ -192,7 +191,7 @@ INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorb
     |     mode           | read-first                          |          |
     |     clkA           | connected to signal <clk>           | rise     |
     |     weA            | connected to signal <we>            | high     |
-    |     addrA          | connected to signal <n0101>         |          |
+    |     addrA          | connected to signal <n0102>         |          |
     |     diA            | connected to signal <data>          |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
@@ -208,7 +207,7 @@ INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorb
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
-INFO:Xst:3048 - The small RAM <Mram__n0147> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+INFO:Xst:3048 - The small RAM <Mram__n0156> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -289,10 +288,9 @@ Primitive and Black Box Usage:
 #      INV                         : 3
 #      LUT1                        : 18
 #      LUT2                        : 2
-#      LUT3                        : 3
-#      LUT4                        : 2
-#      LUT5                        : 4
-#      LUT6                        : 13
+#      LUT4                        : 5
+#      LUT5                        : 3
+#      LUT6                        : 14
 #      MUXCY                       : 18
 #      MUXF7                       : 1
 #      VCC                         : 1
@@ -387,17 +385,17 @@ Timing constraint: Default period analysis for Clock 'clk'
   Total number of paths / destination ports: 1221 / 216
 -------------------------------------------------------------------------
 Delay:               6.754ns (Levels of Logic = 1)
-  Source:            vga_motorComp/Ypixel_5 (FF)
+  Source:            vga_motorComp/Ypixel_6 (FF)
   Destination:       vga_motorComp/Mram_picMem4 (RAM)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: vga_motorComp/Ypixel_5 to vga_motorComp/Mram_picMem4
+  Data Path: vga_motorComp/Ypixel_6 to vga_motorComp/Mram_picMem4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_5 (vga_motorComp/Ypixel_5)
-     DSP48A1:A2->P12       4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT (vga_motorComp/pMemAddr<12>)
+     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_6 (vga_motorComp/Ypixel_6)
+     DSP48A1:A3->P12       4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT (vga_motorComp/pMemAddr<12>)
      RAMB16BWER:ADDRB13        0.350          vga_motorComp/Mram_picMem4
     ----------------------------------------
     Total                      6.754ns (5.357ns logic, 1.397ns route)
@@ -405,7 +403,7 @@ Delay:               6.754ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 167 / 51
+  Total number of paths / destination ports: 172 / 51
 -------------------------------------------------------------------------
 Offset:              5.915ns (Levels of Logic = 4)
   Source:            sw<3> (PAD)
@@ -419,7 +417,7 @@ Offset:              5.915ns (Levels of Logic = 4)
      IBUF:I->O             6   1.222   1.109  sw_3_IBUF (sw_3_IBUF)
      LUT6:I0->O            3   0.203   1.015  vga_motorComp/n000081 (vga_motorComp/n00008)
      LUT6:I0->O            4   0.203   0.912  vga_motorComp/n000083 (vga_motorComp/n0000)
-     LUT3:I0->O            2   0.205   0.616  vga_motorComp/_n01561 (vga_motorComp/_n0156)
+     LUT4:I1->O            2   0.205   0.616  vga_motorComp/_n01651 (vga_motorComp/_n0165)
      FDRE:R                    0.430          vga_motorComp/command_0
     ----------------------------------------
     Total                      5.915ns (2.263ns logic, 3.652ns route)
@@ -460,15 +458,15 @@ clk            |    6.754|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 5.49 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.61 secs
  
 --> 
 
 
-Total memory usage is 461596 kilobytes
+Total memory usage is 461740 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   14 (   0 filtered)
+Number of warnings :   13 (   0 filtered)
 Number of infos    :    3 (   0 filtered)
 

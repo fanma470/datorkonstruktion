@@ -4,6 +4,13 @@ progminnet, eller iom att vårt program är så simpelt kanske tom ha
 dedikerat grx-register för dom
 //behöver även en variabel för om pennan är nedtryckt eller ej - we
 
+Funderar på om vi ska ta det där hjälp-registret i CPU och ist göra det till
+data ut. blir en lätt fix för att kommunicera med vga motor
+
+Tycker fö att vi ska använda mittenknappen för att rita, skita i
+reset.
+
+
 init:
 	-se till att x = y = data = 0
 
@@ -16,10 +23,12 @@ main_loop:
 	- om nedåt är detryckt hoppa till "nedåt"
 	- om mittenknapp hoppa till "mitten"
 	(repetera för alla olika knappar)
+	hoppa till main_loop
 
 
 nedåt:
 	- ladda ycoord från minne till ackumulatorn
+	--kolla max/min -värden för ycoord
 	- öka ycoord med 1
 	-skicka ut "00000010" på data-signalen
 	-skicka ut ycoord på data-signalen

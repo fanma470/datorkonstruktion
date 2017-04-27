@@ -24,7 +24,7 @@ architecture behavioral of cpu is
   
   --statusflaggor
   -- z n c o l
-  signal sr : std_logic_vector(3 downto 0);  --statusregister
+  signal sr : std_logic_vector(3 downto 0) := "0000";  --statusregister
   
  
 
@@ -41,7 +41,7 @@ architecture behavioral of cpu is
 
   signal umsig_cpu : std_logic_vector(31 downto 0);
   signal tobuss : std_logic_vector(2 downto 0);
-  --signal umem : um;
+
   signal pm : prog_mem;
   signal curr_pm : std_logic_vector(15 downto 0) := x"0000";
 
@@ -138,7 +138,8 @@ begin
       if rst='1' then
         helpr <= x"0000";
       elsif umsig_cpu(24 downto 22) = "101" then
-         helpr <= buss;
+         helpr <= buss;                         --Kanske ändra så detta blir
+                                                --data_ut signalen?
       end if;
     end if;             
   end process;
@@ -216,7 +217,7 @@ begin
       if rst = '1' then
         sr <= "0000";
       else
-        if ar = "0000" then
+        if ar = x"0000" then
           sr <= sr or "1000";          -- z UNEQUAL LENGTH?
         else
           sr <= sr and "0111";

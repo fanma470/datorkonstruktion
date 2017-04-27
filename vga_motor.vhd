@@ -72,12 +72,12 @@ begin
   begin
     if rising_edge(clk) then
       if data /= data_buf then
-        if command = "00" then
+        if command = "00" or data(7) = '1' then
           case data is
-            when x"00" => command <= "00";  --NOP
-            when x"01" => command <= "01";  --x
-            when x"02" => command <= "10";  --y
-            when x"03" => command <= "11";  --we
+            when x"80" => command <= "00";  --NOP
+            when x"81" => command <= "01";  --x
+            when x"82" => command <= "10";  --y
+            when x"83" => command <= "11";  --we
             when others => null;
           end case;
           data_buf <= data;
@@ -241,8 +241,6 @@ begin
   vgaGreen(0)   <= tilePixel(2);
   vgaBlue(2) 	<= tilePixel(1);
   vgaBlue(1) 	<= tilePixel(0);
-  --vgaBlue(1) 	<= '1';
-
 
 end Behavioral;
 
