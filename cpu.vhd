@@ -5,9 +5,9 @@ use IEEE.NUMERIC_STD.all;
 entity cpu is
   port(
     -- in och utsignaler
-    clk, rst : in std_logic;
+    clk : in std_logic;
     vga_data : out std_logic_vector(7 downto 0);
-    buttons : in std_logic_vector(3 downto 0);
+    buttons : in std_logic_vector(4 downto 0);
     color : in std_logic_vector(7 downto 0)
   );
 end cpu;
@@ -60,7 +60,6 @@ architecture behavioral of cpu is
   component umem
     port (
       clk : in std_logic;               -- clock
-      rst : in std_logic;               -- rst
       umsig : out std_logic_vector(31 downto 0);  -- umsig
       ir : in std_logic_vector(15 downto 0);
       sr : in std_logic_vector(3 downto 0)
@@ -72,7 +71,6 @@ begin
   --port map umem
   umemComp : umem port map (
     clk => clk,
-    rst => rst,
     umsig => umsig_cpu,
     ir => ir,
     sr => sr
@@ -99,9 +97,7 @@ begin
   process(clk)
   begin
     if rising_edge(clk) then
-      if rst = '1' then
-        ir <= x"0000";
-      elsif umsig_cpu(24 downto 22) = "001" then
+      if umsig_cpu(24 downto 22) = "001" then
         ir <= buss;
       end if;
     end if;             
@@ -121,12 +117,10 @@ begin
   process(clk)
   begin
     if rising_edge(clk) then
-      if rst = '1' then
-        pc <= x"00";
-      elsif umsig_cpu(24 downto 22) = "011" then
+      if umsig_cpu(24 downto 22) = "011" then
         pc <= buss(7 downto 0);
       elsif umsig_cpu(21) = '1' then  --P bit
-          pc <= std_logic_vector(unsigned(pc) + 1);
+        pc <= std_logic_vector(unsigned(pc) + 1);
       end if;
     end if;
   end process;
@@ -135,11 +129,8 @@ begin
   process(clk)
   begin
     if rising_edge(clk) then
-      if rst='1' then
-        helpr <= x"0000";
-      elsif umsig_cpu(24 downto 22) = "101" then
-         helpr <= buss;                         --Kanske ändra så detta blir
-                                                --data_ut signalen?
+      if umsig_cpu(24 downto 22) = "101" then
+        vga_data <= buss(7 downto 0);
       end if;
     end if;             
   end process;
@@ -148,12 +139,7 @@ begin
   process(clk)
   begin
     if rising_edge(clk) then
-      if rst='1' then
-        gmux(0) <= x"0000";
-        gmux(1) <= x"0000";
-        gmux(2) <= x"0000";
-        gmux(3) <= x"0000";
-      elsif umsig_cpu(24 downto 22) = "110" then
+      if umsig_cpu(24 downto 22) = "110" then
         gmux(to_integer(unsigned(sel))) <= buss;
       end if;
     end if;             
@@ -164,9 +150,7 @@ begin
   process(clk)
   begin
     if rising_edge(clk) then
-      if rst='1' then
-        asr <= x"00";
-      elsif umsig_cpu(24 downto 22) = "111" then
+      if umsig_cpu(24 downto 22) = "111" then
         asr <= buss(7 downto 0);
       end if;
     end if;             
@@ -176,27 +160,16 @@ begin
   process(clk)
   begin
     if rising_edge(clk) then
-      if rst=  '1' then
-        ar <= x"0000";
-      else
-        case umsig_cpu(31 downto 28) is
-          when "0001" => ar <= buss;
-          when "0010" => ar <= not buss;
-          when "0011" => ar <= X"0000";
-          when "0100" => ar <= std_logic_vector(signed(ar) + signed(buss));
-          when "0101" => ar <= std_logic_vector(signed(ar) - signed(buss));
-                           --if to_integer(unsigned(ar)) - to_integer(unsigned(buss)) < 0 then
-                            -- ar <= std_logic_vector(signed(ar) - signed(buss));
-                            -- n <= '1';
-                           --else
-                            -- ar <= std_logic_vector(signed(ar) - signed(buss));
-                            -- n <= '0';
-                          -- end if;
-          when "0110" => ar <= ar and buss;
-          when "0111" => ar <= ar or buss;
-          when others => null;
-        end case;
-      end if;
+      case umsig_cpu(31 downto 28) is
+        when "0001" => ar <= buss;
+        when "0010" => ar <= not buss;
+        when "0011" => ar <= X"0000";
+        when "0100" => ar <= std_logic_vector(signed(ar) + signed(buss));
+        when "0101" => ar <= std_logic_vector(signed(ar) - signed(buss));
+        when "0110" => ar <= ar and buss;
+        when "0111" => ar <= ar or buss;
+        when others => null;
+      end case;
     end if;
   end process;
 
@@ -214,28 +187,19 @@ begin
   process(clk)
     begin
     if rising_edge(clk) then
-      if rst = '1' then
-        sr <= "0000";
+      if ar = x"0000" then
+        sr <= sr or "0001";          -- z UNEQUAL LENGTH?
       else
-        if ar = x"0000" then
-          sr <= sr or "1000";          -- z UNEQUAL LENGTH?
+        sr <= sr and "1110";
+      end if;
+      if umsig_cpu(31 downto 28) = "0100" then
+        if signed(ar) + signed(buss) > 65535 then
+          sr <= sr or "1000";        -- o
         else
           sr <= sr and "0111";
         end if;
-        if umsig_cpu(31 downto 28) = "0100" then
-          if signed(ar) + signed(buss) > 65535 then
-            sr <= sr or "0001";        -- o
-          else
-            sr <= sr and "1110";
-          end if;
-        end if;
-        --if unsigned(lc) > 0 then
-         -- sr <= sr or "00001";
-        --else
-        --  sr <= sr and "11110";
-       -- end if;
       end if;
-  end if;
+    end if;
   end process;
         
 end behavioral;

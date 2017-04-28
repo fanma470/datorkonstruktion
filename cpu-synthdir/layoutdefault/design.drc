@@ -1,7 +1,7 @@
 Release 12.4 Drc M.81d (lin64)
 Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
-Thu Apr 27 11:32:33 2017
+Fri Apr 28 11:12:38 2017
 
 drc -z design.ncd design.pcf
 
@@ -11,7 +11,9 @@ WARNING:PhysDesignRules:367 - The signal <btnl_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <btnr_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <btns_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <btnu_IBUF> is incomplete. The signal
    does not drive any load pins in the design.
-DRC detected 0 errors and 4 warnings.  Please see the previously displayed
+DRC detected 0 errors and 5 warnings.  Please see the previously displayed
 individual error or warning messages for more details.

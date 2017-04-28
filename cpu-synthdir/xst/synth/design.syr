@@ -5,7 +5,7 @@ Parameter TMPDIR set to tmpdir
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 
@@ -75,19 +75,18 @@ Parsing architecture <Behavioral> of entity <vga_motor>.
 Elaborating entity <top> (architecture <behavioral>) from library <work>.
 
 Elaborating entity <cpu> (architecture <behavioral>) from library <work>.
+WARNING:HDLCompiler:871 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 39: Using initial value "0000000000000000" for helpr since it is never assigned
 
 Elaborating entity <umem> (architecture <behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 63: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 64: Assignment to o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 203: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 208: Assignment to z ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 209: Assignment to n ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 210: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 211: Assignment to o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 71: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 72: Assignment to o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 176: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 181: Assignment to z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 182: Assignment to n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 183: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 184: Assignment to o ignored, since the identifier is never used
 
 Elaborating entity <VGA_MOTOR> (architecture <Behavioral>) from library <work>.
-WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/cpu.vhd" line 73. All outputs of instance <umemComp> of block <umem> are unconnected in block <cpu>. Underlying logic will be removed.
-WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/top.vhd" line 66. All outputs of instance <cpuComp> of block <cpu> are unconnected in block <top>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -95,10 +94,54 @@ WARNING:Xst:2972 - "/edu/leoar200/Desktop/proj/top.vhd" line 66. All outputs of 
 
 Synthesizing Unit <top>.
     Related source file is "/edu/leoar200/Desktop/proj/top.vhd".
-INFO:Xst:3010 - "/edu/leoar200/Desktop/proj/top.vhd" line 66: Output port <vga_data> of the instance <cpuComp> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <top> synthesized.
+
+Synthesizing Unit <cpu>.
+    Related source file is "/edu/leoar200/Desktop/proj/cpu.vhd".
+WARNING:Xst:647 - Input <buttons<4:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <color<7:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 4x16-bit single-port RAM <Mram_gmux> for signal <gmux>.
+    Found 256x16-bit single-port RAM <Mram_pm> for signal <pm>.
+    Found 8-bit register for signal <pc>.
+    Found 8-bit register for signal <vga_data>.
+    Found 8-bit register for signal <asr>.
+    Found 16-bit register for signal <ar>.
+    Found 4-bit register for signal <sr>.
+    Found 16-bit register for signal <ir>.
+    Found 8-bit adder for signal <pc[7]_GND_5_o_add_12_OUT> created at line 1241.
+    Found 16-bit adder for signal <ar[15]_buss[15]_add_25_OUT> created at line 167.
+    Found 16-bit subtractor for signal <ar[15]_buss[15]_sub_27_OUT<15:0>> created at line 168.
+    Found 16-bit 8-to-1 multiplexer for signal <buss> created at line 85.
+    Summary:
+	inferred   2 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  60 D-type flip-flop(s).
+	inferred   9 Multiplexer(s).
+Unit <cpu> synthesized.
+
+Synthesizing Unit <umem>.
+    Related source file is "/edu/leoar200/Desktop/proj/umem.vhd".
+WARNING:Xst:647 - Input <ir<11:10>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <sr<2:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2999 - Signal 'umem', unconnected in block 'umem', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'op_mode', unconnected in block 'umem', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'address_mode', unconnected in block 'umem', is tied to its initial value.
+    Found 32x32-bit single-port Read Only RAM <Mram_umem> for signal <umem>.
+    Found 8x8-bit dual-port Read Only RAM <Mram_address_mode> for signal <address_mode>.
+    Found 32-bit register for signal <upc>.
+    Found 32-bit register for signal <supc>.
+    Found 32-bit register for signal <lc>.
+    Found 15-bit adder for signal <n0065[14:0]> created at line 103.
+    Found 32-bit adder for signal <upc[31]_GND_6_o_add_23_OUT> created at line 128.
+    Found 32-bit subtractor for signal <lc[31]_GND_6_o_sub_10_OUT<31:0>> created at line 84.
+    Summary:
+	inferred   2 RAM(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  96 D-type flip-flop(s).
+	inferred  17 Multiplexer(s).
+Unit <umem> synthesized.
 
 Synthesizing Unit <VGA_MOTOR>.
     Related source file is "/edu/leoar200/Desktop/proj/vga_motor.vhd".
@@ -119,18 +162,18 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <picMem>
     Found 20-bit adder for signal <pMemAddr> created at line 99.
     Found 20-bit adder for signal <n0102> created at line 106.
     Found 2-bit adder for signal <ClkDiv[1]_GND_7_o_add_32_OUT> created at line 1241.
-    Found 10-bit adder for signal <Xpixel[9]_GND_7_o_add_37_OUT> created at line 149.
-    Found 10-bit adder for signal <Ypixel[9]_GND_7_o_add_45_OUT> created at line 184.
-    Found 7x7-bit multiplier for signal <Ypixel[9]_PWR_10_o_MuLt_24_OUT> created at line 1399.
-    Found 10x7-bit multiplier for signal <ycoord[9]_PWR_10_o_MuLt_26_OUT> created at line 1399.
-    Found 4x2-bit Read Only RAM for signal <_n0156>
+    Found 10-bit adder for signal <Xpixel[9]_GND_7_o_add_36_OUT> created at line 145.
+    Found 10-bit adder for signal <Ypixel[9]_GND_7_o_add_44_OUT> created at line 180.
+    Found 7x7-bit multiplier for signal <Ypixel[9]_PWR_9_o_MuLt_24_OUT> created at line 1399.
+    Found 10x7-bit multiplier for signal <ycoord[9]_PWR_9_o_MuLt_26_OUT> created at line 1399.
+    Found 4x2-bit Read Only RAM for signal <_n0155>
     Found 8-bit comparator equal for signal <n0000> created at line 74
-    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_42_o> created at line 163
-    Found 10-bit comparator greater for signal <Xpixel[9]_PWR_10_o_LessThan_43_o> created at line 163
-    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_51_o> created at line 199
-    Found 10-bit comparator greater for signal <Ypixel[9]_GND_7_o_LessThan_52_o> created at line 199
-    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_53_o> created at line 218
-    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_54_o> created at line 218
+    Found 10-bit comparator greater for signal <PWR_9_o_Xpixel[9]_LessThan_41_o> created at line 159
+    Found 10-bit comparator greater for signal <Xpixel[9]_PWR_9_o_LessThan_42_o> created at line 159
+    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_50_o> created at line 195
+    Found 10-bit comparator greater for signal <Ypixel[9]_GND_7_o_LessThan_51_o> created at line 195
+    Found 10-bit comparator greater for signal <PWR_9_o_Xpixel[9]_LessThan_52_o> created at line 214
+    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_53_o> created at line 214
     Summary:
 	inferred   2 RAM(s).
 	inferred   2 Multiplier(s).
@@ -138,33 +181,51 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <picMem>
 	inferred  64 D-type flip-flop(s).
 	inferred   7 Comparator(s).
 Unit <VGA_MOTOR> synthesized.
-RTL-Simplification CPUSTAT: 0.04 
-RTL-BasicInf CPUSTAT: 0.15 
-RTL-BasicOpt CPUSTAT: 0.00 
+RTL-Simplification CPUSTAT: 0.09 
+RTL-BasicInf CPUSTAT: 0.17 
+RTL-BasicOpt CPUSTAT: 0.01 
 RTL-Remain-Bus CPUSTAT: 0.00 
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 2
+# RAMs                                                 : 6
+ 256x16-bit single-port RAM                            : 1
+ 32x32-bit single-port Read Only RAM                   : 1
+ 4x16-bit single-port RAM                              : 1
  4x2-bit single-port Read Only RAM                     : 1
  6144x8-bit dual-port RAM                              : 1
+ 8x8-bit dual-port Read Only RAM                       : 1
 # Multipliers                                          : 2
  10x7-bit multiplier                                   : 1
  7x7-bit multiplier                                    : 1
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 10
  10-bit adder                                          : 2
+ 15-bit adder                                          : 1
+ 16-bit addsub                                         : 1
  2-bit adder                                           : 1
  20-bit adder                                          : 2
-# Registers                                            : 12
+ 32-bit adder                                          : 1
+ 32-bit subtractor                                     : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 21
  1-bit register                                        : 4
  10-bit register                                       : 4
+ 16-bit register                                       : 2
  2-bit register                                        : 2
- 8-bit register                                        : 2
+ 32-bit register                                       : 3
+ 4-bit register                                        : 1
+ 8-bit register                                        : 5
 # Comparators                                          : 7
  10-bit comparator greater                             : 6
  8-bit comparator equal                                : 1
+# Multiplexers                                         : 26
+ 16-bit 2-to-1 multiplexer                             : 5
+ 16-bit 8-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 17
+ 4-bit 2-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
 
@@ -172,16 +233,13 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:2404 -  FFs/Latches <xcoord<9:8>> (without init value) have a constant value of 0 in block <VGA_MOTOR>.
-WARNING:Xst:2404 -  FFs/Latches <ycoord<9:8>> (without init value) have a constant value of 0 in block <VGA_MOTOR>.
 
 Synthesizing (advanced) Unit <VGA_MOTOR>.
 The following registers are absorbed into counter <ClkDiv>: 1 register on signal <ClkDiv>.
 The following registers are absorbed into counter <Xpixel>: 1 register on signal <Xpixel>.
 The following registers are absorbed into counter <Ypixel>: 1 register on signal <Ypixel>.
-	Multiplier <Mmult_Ypixel[9]_PWR_10_o_MuLt_24_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_pMemAddr_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT>.
-	Multiplier <Mmult_ycoord[9]_PWR_10_o_MuLt_26_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_n0102_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_ycoord[9]_PWR_10_o_MuLt_26_OUT>.
-	The following registers are also absorbed by the MAC: <ycoord> in block <VGA_MOTOR>, <xcoord> in block <VGA_MOTOR>.
+	Multiplier <Mmult_Ypixel[9]_PWR_9_o_MuLt_24_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_pMemAddr_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_Ypixel[9]_PWR_9_o_MuLt_24_OUT>.
+	Multiplier <Mmult_ycoord[9]_PWR_9_o_MuLt_26_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_n0102_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_ycoord[9]_PWR_9_o_MuLt_26_OUT>.
 INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorbing the following register(s): <tilePixel>
     -----------------------------------------------------------------------
     | ram_type           | Block                               |          |
@@ -192,7 +250,7 @@ INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorb
     |     clkA           | connected to signal <clk>           | rise     |
     |     weA            | connected to signal <we>            | high     |
     |     addrA          | connected to signal <n0102>         |          |
-    |     diA            | connected to signal <data>          |          |
+    |     diA            | connected to signal <switches>      |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
@@ -207,7 +265,7 @@ INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorb
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
-INFO:Xst:3048 - The small RAM <Mram__n0156> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+INFO:Xst:3048 - The small RAM <Mram__n0155> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -220,38 +278,233 @@ INFO:Xst:3048 - The small RAM <Mram__n0156> will be implemented on LUTs in order
     -----------------------------------------------------------------------
 Unit <VGA_MOTOR> synthesized (advanced).
 
+Synthesizing (advanced) Unit <cpu>.
+The following registers are absorbed into counter <pc>: 1 register on signal <pc>.
+INFO:Xst:3039 - The RAM <Mram_pm> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 16-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <asr>           |          |
+    |     diA            | connected to signal <buss>          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 256-word x 16-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     addrB          | connected to signal <buss<7:0>>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3031 - HDL ADVISOR - The RAM <Mram_gmux> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 16-bit                     |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <sel>           |          |
+    |     diA            | connected to signal <buss>          |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <cpu> synthesized (advanced).
+
+Synthesizing (advanced) Unit <umem>.
+The following registers are absorbed into counter <lc>: 1 register on signal <lc>.
+INFO:Xst:3048 - The small RAM <Mram_umem> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <upc<4:0>>      |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <uaddr>         |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3031 - HDL ADVISOR - The RAM <Mram_address_mode> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 8-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <ir>            |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 8-word x 8-bit                      |          |
+    |     weB            | connected to signal <GND>           | high     |
+    |     addrB          | connected to signal <("0",ir<9:8>)> |          |
+    |     diB            | connected to signal <GND>           |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <umem> synthesized (advanced).
+
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 2
+# RAMs                                                 : 6
+ 256x16-bit dual-port block RAM                        : 1
+ 32x32-bit single-port distributed Read Only RAM       : 1
+ 4x16-bit single-port distributed RAM                  : 1
  4x2-bit single-port distributed Read Only RAM         : 1
  6144x8-bit dual-port block RAM                        : 1
+ 8x8-bit dual-port distributed Read Only RAM           : 1
 # MACs                                                 : 2
+ 10x7-to-13-bit MAC                                    : 1
  7x7-to-13-bit MAC                                     : 1
- 9x7-to-13-bit MAC                                     : 1
-# Counters                                             : 3
+# Adders/Subtractors                                   : 3
+ 15-bit adder                                          : 1
+ 16-bit addsub                                         : 1
+ 32-bit adder                                          : 1
+# Counters                                             : 5
  10-bit up counter                                     : 2
  2-bit up counter                                      : 1
-# Registers                                            : 14
- Flip-Flops                                            : 14
+ 32-bit down counter                                   : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 150
+ Flip-Flops                                            : 150
 # Comparators                                          : 7
  10-bit comparator greater                             : 6
  8-bit comparator equal                                : 1
+# Multiplexers                                         : 27
+ 1-bit 2-to-1 multiplexer                              : 4
+ 16-bit 2-to-1 multiplexer                             : 5
+ 16-bit 8-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 16
+ 4-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:1293 - FF/Latch <xcoord_8> has a constant value of 0 in block <VGA_MOTOR>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <xcoord_9> has a constant value of 0 in block <VGA_MOTOR>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ycoord_8> has a constant value of 0 in block <VGA_MOTOR>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ycoord_9> has a constant value of 0 in block <VGA_MOTOR>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <sr_1> has a constant value of 0 in block <cpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sr_2> has a constant value of 0 in block <cpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sr_3> has a constant value of 0 in block <cpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <supc_5> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_6> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_7> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_8> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_9> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_10> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_11> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_12> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_13> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_14> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_15> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_16> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_17> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_18> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_19> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_20> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_21> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_22> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_23> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_24> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_25> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_26> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_27> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_28> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_29> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_30> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <supc_31> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_5> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_6> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_7> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_8> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_9> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_10> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_11> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_12> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_13> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_14> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_15> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_16> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_17> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_18> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_19> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_20> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_21> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_22> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_23> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_24> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_25> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_26> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_27> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_28> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_29> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_30> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <upc_31> of sequential type is unconnected in block <umem>.
 
 Optimizing unit <top> ...
+
+Optimizing unit <cpu> ...
+
+Optimizing unit <umem> ...
+WARNING:Xst:1293 - FF/Latch <supc_0> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <supc_1> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <supc_2> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <supc_3> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <supc_4> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <lc_0> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_1> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_2> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_3> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_4> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_5> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_6> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_7> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_8> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_9> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_10> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_11> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_12> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_13> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_14> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_15> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_16> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_17> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_18> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_19> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_20> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_21> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_22> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_23> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_24> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_25> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_26> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_27> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_28> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_29> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_30> of sequential type is unconnected in block <umem>.
+WARNING:Xst:2677 - Node <lc_31> of sequential type is unconnected in block <umem>.
 
 Optimizing unit <VGA_MOTOR> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block top, actual ratio is 0.
+Found area constraint ratio of 100 (+ 0) on block top, actual ratio is 2.
+FlipFlop cpuComp/umemComp/upc_0 has been replicated 1 time(s)
+FlipFlop cpuComp/umemComp/upc_1 has been replicated 2 time(s)
+FlipFlop cpuComp/umemComp/upc_2 has been replicated 2 time(s)
+FlipFlop cpuComp/umemComp/upc_3 has been replicated 1 time(s)
+FlipFlop cpuComp/umemComp/upc_4 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -259,8 +512,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 36
- Flip-Flops                                            : 36
+# Registers                                            : 153
+ Flip-Flops                                            : 153
 
 =========================================================================
 
@@ -283,29 +536,31 @@ Top Level Output File Name         : design.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 86
+# BELS                             : 322
 #      GND                         : 1
-#      INV                         : 3
-#      LUT1                        : 18
-#      LUT2                        : 2
-#      LUT4                        : 5
-#      LUT5                        : 3
-#      LUT6                        : 14
-#      MUXCY                       : 18
-#      MUXF7                       : 1
+#      INV                         : 4
+#      LUT1                        : 22
+#      LUT2                        : 7
+#      LUT3                        : 15
+#      LUT4                        : 14
+#      LUT5                        : 41
+#      LUT6                        : 75
+#      MUXCY                       : 60
+#      MUXF7                       : 17
 #      VCC                         : 1
-#      XORCY                       : 20
-# FlipFlops/Latches                : 36
-#      FD                          : 1
-#      FDE                         : 11
-#      FDR                         : 2
+#      XORCY                       : 65
+# FlipFlops/Latches                : 153
+#      FD                          : 4
+#      FDE                         : 127
 #      FDRE                        : 22
-# RAMS                             : 4
+# RAMS                             : 21
+#      RAM16X1S                    : 16
 #      RAMB16BWER                  : 4
+#      RAMB8BWER                   : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 19
-#      IBUF                        : 9
+# IO Buffers                       : 18
+#      IBUF                        : 8
 #      OBUF                        : 10
 # DSPs                             : 2
 #      DSP48A1                     : 2
@@ -317,24 +572,26 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              36  out of  18224     0%  
- Number of Slice LUTs:                   45  out of   9112     0%  
-    Number used as Logic:                45  out of   9112     0%  
+ Number of Slice Registers:             153  out of  18224     0%  
+ Number of Slice LUTs:                  194  out of   9112     2%  
+    Number used as Logic:               178  out of   9112     1%  
+    Number used as Memory:               16  out of   2176     0%  
+       Number used as RAM:               16
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     62
-   Number with an unused Flip Flop:      26  out of     62    41%  
-   Number with an unused LUT:            17  out of     62    27%  
-   Number of fully used LUT-FF pairs:    19  out of     62    30%  
-   Number of unique control sets:         7
+ Number of LUT Flip Flop pairs used:    261
+   Number with an unused Flip Flop:     108  out of    261    41%  
+   Number with an unused LUT:            67  out of    261    25%  
+   Number of fully used LUT-FF pairs:    86  out of    261    32%  
+   Number of unique control sets:        15
 
 IO Utilization: 
  Number of IOs:                          24
- Number of bonded IOBs:                  20  out of    232     8%  
+ Number of bonded IOBs:                  19  out of    232     8%  
 
 Specific Feature Utilization:
- Number of Block RAM/FIFO:                4  out of     32    12%  
-    Number using Block RAM only:          4
+ Number of Block RAM/FIFO:                5  out of     32    15%  
+    Number using Block RAM only:          5
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
  Number of DSP48A1s:                      2  out of     32     6%  
 
@@ -359,7 +616,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 42    |
+clk                                | BUFGP                  | 175   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -371,7 +628,7 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 6.754ns (Maximum Frequency: 148.070MHz)
-   Minimum input arrival time before clock: 5.915ns
+   Minimum input arrival time before clock: 2.101ns
    Maximum output required time after clock: 5.000ns
    Maximum combinational path delay: No path found
 
@@ -382,46 +639,43 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 6.754ns (frequency: 148.070MHz)
-  Total number of paths / destination ports: 1221 / 216
+  Total number of paths / destination ports: 14216 / 543
 -------------------------------------------------------------------------
 Delay:               6.754ns (Levels of Logic = 1)
-  Source:            vga_motorComp/Ypixel_6 (FF)
+  Source:            vga_motorComp/Ypixel_9 (FF)
   Destination:       vga_motorComp/Mram_picMem4 (RAM)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: vga_motorComp/Ypixel_6 to vga_motorComp/Mram_picMem4
+  Data Path: vga_motorComp/Ypixel_9 to vga_motorComp/Mram_picMem4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_6 (vga_motorComp/Ypixel_6)
-     DSP48A1:A3->P12       4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT (vga_motorComp/pMemAddr<12>)
-     RAMB16BWER:ADDRB13        0.350          vga_motorComp/Mram_picMem4
+     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_9 (vga_motorComp/Ypixel_9)
+     DSP48A1:A6->P3        4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_9_o_MuLt_24_OUT (vga_motorComp/pMemAddr<3>)
+     RAMB16BWER:ADDRB4         0.350          vga_motorComp/Mram_picMem4
     ----------------------------------------
     Total                      6.754ns (5.357ns logic, 1.397ns route)
                                        (79.3% logic, 20.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 172 / 51
+  Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
-Offset:              5.915ns (Levels of Logic = 4)
-  Source:            sw<3> (PAD)
-  Destination:       vga_motorComp/command_1 (FF)
+Offset:              2.101ns (Levels of Logic = 1)
+  Source:            sw<7> (PAD)
+  Destination:       vga_motorComp/Mram_picMem4 (RAM)
   Destination Clock: clk rising
 
-  Data Path: sw<3> to vga_motorComp/command_1
+  Data Path: sw<7> to vga_motorComp/Mram_picMem4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             6   1.222   1.109  sw_3_IBUF (sw_3_IBUF)
-     LUT6:I0->O            3   0.203   1.015  vga_motorComp/n000081 (vga_motorComp/n00008)
-     LUT6:I0->O            4   0.203   0.912  vga_motorComp/n000083 (vga_motorComp/n0000)
-     LUT4:I1->O            2   0.205   0.616  vga_motorComp/_n01651 (vga_motorComp/_n0165)
-     FDRE:R                    0.430          vga_motorComp/command_0
+     IBUF:I->O             1   1.222   0.579  sw_7_IBUF (sw_7_IBUF)
+     RAMB16BWER:DIA1           0.300          vga_motorComp/Mram_picMem4
     ----------------------------------------
-    Total                      5.915ns (2.263ns logic, 3.652ns route)
-                                       (38.3% logic, 61.7% route)
+    Total                      2.101ns (1.522ns logic, 0.579ns route)
+                                       (72.4% logic, 27.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -458,15 +712,15 @@ clk            |    6.754|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.61 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.81 secs
  
 --> 
 
 
-Total memory usage is 461740 kilobytes
+Total memory usage is 463640 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   13 (   0 filtered)
-Number of infos    :    3 (   0 filtered)
+Number of warnings :  115 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
 

@@ -14,8 +14,8 @@ use IEEE.NUMERIC_STD.ALL;               -- IEEE library for the unsigned type
 -- entity
 entity VGA_MOTOR is
   port ( clk			: in std_logic;
+         switches               : in std_logic_vector(7 downto 0);
 	 data			: in std_logic_vector(7 downto 0);
-	 rst			: in std_logic;
 	 vgaRed		        : out std_logic_vector(2 downto 0);
 	 vgaGreen	        : out std_logic_vector(2 downto 0);
 	 vgaBlue		: out std_logic_vector(2 downto 1);
@@ -36,7 +36,7 @@ architecture Behavioral of VGA_MOTOR is
   signal	pMemAddr	: unsigned(19 downto 0);	-- Tile address
 
   signal        blank           : std_logic;                    -- blanking signal
-  signal        we              : std_logic := '0';             -- write enable
+  signal        we              : std_logic := '1';             -- write enable
 
   signal data_buf : std_logic_vector(7 downto 0) := x"00";  -- for storing previous data value
   signal command : std_logic_vector(1 downto 0) := "00";
@@ -58,8 +58,8 @@ architecture Behavioral of VGA_MOTOR is
 
 -- pic memory
   signal picMem : minne := (others => x"FF");
-  signal xcoord : unsigned(9 downto 0);
-  signal ycoord : unsigned(9 downto 0);
+  signal xcoord : unsigned(9 downto 0) := "0000101000";
+  signal ycoord : unsigned(9 downto 0) := "0000011110";
   
 begin
 
@@ -103,7 +103,7 @@ begin
   begin
     if rising_edge(clk) then
       if we = '1' then
-        picMem(to_integer(Ycoord*80 + Xcoord)) <= data;
+        picMem(to_integer(Ycoord*80 + Xcoord)) <= switches;
       end if;
     end if;
   end process;
@@ -125,11 +125,7 @@ begin
   process(clk)
   begin
     if rising_edge(clk) then
-      if rst='1' then
-	ClkDiv <= (others => '0');
-      else
-	ClkDiv <= ClkDiv + 1;
-      end if;
+      ClkDiv <= ClkDiv + 1;
     end if;
   end process;
 	

@@ -2,13 +2,11 @@ liten skiss på hur programmet kan se ut
 //föreslår att vi har variabler xcoord, ycoord sparade längst ner i
 progminnet, eller iom att vårt program är så simpelt kanske tom ha
 dedikerat grx-register för dom
-//behöver även en variabel för om pennan är nedtryckt eller ej - we
 
-Funderar på om vi ska ta det där hjälp-registret i CPU och ist göra det till
-data ut. blir en lätt fix för att kommunicera med vga motor
-
-Tycker fö att vi ska använda mittenknappen för att rita, skita i
-reset.
+för att fixa så att det inte sker 100000*10² knapptryckningar i
+sekunden kan vi se till att innan en knapptryckning registreras måste
+alla knappar varit o-nedtryckta, dvs man kan ej hålla ner en knapp för
+att gå flera steg
 
 
 init:
@@ -38,3 +36,137 @@ mitten:
 	-lägg "00000011" på data-signalen
 	-lägg we på data-signalen
 	hoppa till main_loop
+
+
+  buttons(0) <= btnu;
+  buttons(1) <= btnl;
+  buttons(2) <= btnd;
+  buttons(3) <= btnr;
+  buttons(4) <= btns;
+
+load
+store
+add
+and
+sub
+bra 
+bne
+beq
+
+vga = vga:=grx
+btn = alu <= btn
+
+gr0 = x
+gr1 = y
+gr2 = we
+gr3 = ut/whatever
+
+(sista addressen) = har knapp varit nedtryckt
+---------------------------------------------------------------------
+init:
+	load	gr0, d"40"		--sätt x till mitten
+	load 	gr1, d"30" 		--sätt y till mitten
+	load 	gr2, 0			--sätt pennan till av
+	store	(sista addressen), 0
+
+main_loop:
+	load	gr3, (sista addressen)
+	add	gr3, 0
+	bne	btn_check
+
+	btn	gr3			--UPPKNAPP
+	and 	gr3, X"FFFE"
+	sub 	gr3, x"0001"		
+	beq	btn_up
+
+	btn	gr3
+	and	gr3, X"FFFB"		--NEDKNAPP
+	sub	gr3, X"0004"
+	beq	btn_down
+
+	btn	gr3			--HÖGER
+	and	gr3, X"FFF7"
+	sub	gr3, X"0008"
+	beq	btn_right
+
+	btn	gr3			--VÄNSTER
+	and	gr3, x"FFFD"
+	sub	gr3, x"0002"
+	beq	btn_left
+
+	btn	gr3			--SELECT
+	and	gr3, x"FFEF"
+	sub	gr3, x"0010"	
+	beq	btn_select
+
+	bra	main_loop
+
+btn_check:
+	btn	gr3
+	add	gr3, 0
+	bne	main_loop
+	store	(sista addressen), 0
+	bra	main_loop
+
+btn_up:
+	load	gr3, gr1
+	add	gr3, 0			--kolla om Y=0
+	beq	main_loop		--isf gtfo
+	sub	gr1, d"1"		--minus 1
+	load	gr3, x"0082"		--ladda "sätt y"-kommandot
+	vga	gr3 			--skicka det till vgamotor
+	vga	gr1			--skicka ut nya ycoord
+	store	(sista addressen), 1
+	bra	main_loop
+
+btn_down:
+	load	gr3, gr1
+	sub	gr3, d"59"		--kolla om Y=59
+	beq	main_loop		--isf gtfo
+	add	gr1, d"1"		--plus 1
+	load	gr3, x"0082"		--ladda "sätt y"-kommandot
+	vga	gr3 			--skicka det till vgamotor
+	vga	gr1			--skicka ut nya ycoord
+	store	(sista addressen), 1
+	bra	main_loop
+
+btn_right:
+	load	gr3, gr0
+	sub	gr3, d"79"		--kolla om x=79
+	beq	main_loop		--isf gtfo
+	add	gr0, d"1"
+	load	gr3, x"0081"		--ladda "sätt x"-kommandot
+	vga	gr3
+	vga	gr0
+	store	(sista addressen), 1
+	bra	main_loop
+
+btn_left:
+	load	gr3, gr0
+	add	gr3, x"0000"
+	beq	main_loop
+	sub	gr0, X"0001"
+	load	gr3, x"0081"
+	vga	gr3
+	vga	gr0
+	store	(sista addressen), 1
+	bra	main_loop
+
+btn_select:
+	load	gr3, gr2
+	add	gr3, 0
+	beq	btn_s_to_one
+	load	gr2, 0
+	load	gr3, x"0083"
+	vga	gr3
+	vga	gr2
+	store	(sista addressen), 1
+	bra	main_loop
+
+btns_s_to_one:
+	load	gr2, 1
+	load	gr3, x"0083"
+	vga	gr3
+	vga	gr2
+	store	(sista addressen), 1
+	bra	main_loop

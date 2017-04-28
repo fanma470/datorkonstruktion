@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.all;
 entity umem is
   port(
     -- in och utsignaler
-    clk, rst : in std_logic;
+    clk : in std_logic;
     umsig : out std_logic_vector(31 downto 0);
     ir : in std_logic_vector(15 downto 0);
     sr : in std_logic_vector(3 downto 0)
@@ -20,7 +20,14 @@ architecture behavioral of umem is
   signal supc : integer;  -- suPC return adress
   type um is array (0 to 31) of std_logic_vector(31 downto 0);  -- uMinne
 
-  signal umem : um := (others => x"00000000");
+  signal umem : um := (x"00f80000", x"008a0000", x"00001000", x"00780800",
+                       x"00fa0800", x"00780000", x"00b80800", x"02400000",
+                       x"09840000", x"01380800", x"00b01800", x"01901800",
+                       x"02800000", x"09800000", x"01301800", x"03800000",
+                       x"0a800000", x"01301800", x"02800000", x"0d800000",
+                       x"01301800", x"03800000", x"00410000", x"1a008000",
+                       x"01306000", x"00002970", x"00581800", x"000041c0",
+                       x"00021800", x"005a1800", x"00007800", others => x"00000000");
     -- z n c o l
   signal op : std_logic_vector(3 downto 0);
   --signal grx : std_logic_vector(1 downto 0);
@@ -41,6 +48,7 @@ architecture behavioral of umem is
 
   signal lc : integer := 0;
   signal lc_inst : std_logic_vector(1 downto 0) := "00";  -- loop count instruction
+  
 begin
   --um
   umsig <= umem(upc);                   --skickas ut
@@ -72,16 +80,12 @@ begin
   process(clk)
   begin
     if rising_edge(clk) then
-      if rst='1' then
-        lc <= 0;
-      else
-        case lc_inst is
-          when "01" => lc <= lc - 1;
-          when "10" => lc <= to_integer(unsigned(address));
-          when "11" => lc <= to_integer(unsigned(uaddr));
-          when others => null;
-        end case;
-      end if;
+      case lc_inst is
+        when "01" => lc <= lc - 1;
+        when "10" => lc <= to_integer(unsigned(address));
+        when "11" => lc <= to_integer(unsigned(uaddr));
+        when others => null;
+      end case;
     end if;             
   end process;
 

@@ -16,7 +16,7 @@ use IEEE.NUMERIC_STD.all;
 entity top is
   port(
     -- in och utsignaler
-    clk, rst : in std_logic;
+    clk, btns : in std_logic;
     vgaRed : out std_logic_vector(2 downto 0);
     vgaGreen : out std_logic_vector(2 downto 0);
     vgaBlue : out std_logic_vector(2 downto 1);
@@ -31,15 +31,14 @@ architecture behavioral of top is
 
   -- signaler
   signal vga_data : std_logic_vector(7 downto 0);
-  signal buttons : std_logic_vector(3 downto 0);
+  signal buttons : std_logic_vector(4 downto 0);
   -- komponenter
 
   component cpu
     port (
       clk : in std_logic;
-      rst : in std_logic;
       vga_data : out std_logic_vector(7 downto 0);
-      buttons : in std_logic_vector(3 downto 0);
+      buttons : in std_logic_vector(4 downto 0);
       color : in std_logic_vector(7 downto 0)
       );
   end component;
@@ -47,8 +46,8 @@ architecture behavioral of top is
   component vga_motor
     port (
       clk : in std_logic;
-      rst : in std_logic;
       data : in std_logic_vector(7 downto 0);
+      switches : in std_logic_vector(7 downto 0);
       vgaRed : out std_logic_vector(2 downto 0);
       vgaGreen : out std_logic_vector(2 downto 0);
       vgaBlue : out std_logic_vector(2 downto 1);
@@ -61,11 +60,11 @@ begin
   buttons(1) <= btnl;
   buttons(2) <= btnd;
   buttons(3) <= btnr;
+  buttons(4) <= btns;
   
   --port map cpu
   cpuComp : cpu port map (
     clk => clk,
-    rst => rst,
     vga_data => vga_data,
     buttons => buttons,
     color => sw
@@ -75,9 +74,8 @@ begin
   --port map vga_motor
   vga_motorComp : vga_motor port map (
     clk => clk,
-    rst => rst,
-    --data => vga_data, --TODO ÄNDRA TILL DENNA
-    data => sw,
+    data => vga_data,
+    switches => sw,
     vgared => vgared,
     vgagreen => vgagreen,
     vgablue => vgablue,
