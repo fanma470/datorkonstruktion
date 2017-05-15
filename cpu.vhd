@@ -51,18 +51,24 @@ architecture behavioral of cpu is
   --beq         0111
   --btn         1000
   --vga         1001
-  signal pm : prog_mem := ("0000000000101000",  --lda gr0 d40 --sätt x i mitten
-                           "0000010000011110",  --lda gr1 d30 --y i mitten
-                           "0000100000000000",  --lda gr2 0   --stäng av pennan
-                           "0001100011111111",  --store gr2 i pm(255)
+  signal pm : prog_mem := ("0000000100000000",  --00 lda gr0 d40 --sätt x i mitten00
+                           "0000000000101000",  --01 d40
+                           "0000010100000011",  --02 lda gr1 d30 --y i mitten
+                           "0000000000011110",  --03 d30
+                           "0000100100000101",  --04 lda gr2 0   --stäng av pennan
+                           "0000000000000000",   --05 d0
+                           "0001100111111111",  --06 store gr2 i pm(255)
+                           "1111111111111111",
                            --main loop test
-                           "0000010010000001",  --lda gr1 x81
-                           "1001010000000000",
-                           "0000000000000000",  --lda gr0 d42
+                           "0000010100001000",  --07 lda gr1 x81
+                           "0000000010000001",  --08 x81
+                           "1001010000000000",  --09 vhd gr1
+                           "0000000100001011",  --0a lda gr0 d42
+                           "0000000000101010",  --0b d42
+                           "1001000000000000",  --vhd gr0
+                           "0101000100000000",  --bra 00
                            "0000000000000000",
-                           "1001000000000000",
-                           "0101000000000000",
-                           others => (others => '0'));
+                           others => "0000000000000000");
   
   signal curr_pm : std_logic_vector(15 downto 0) := x"0000";
 
@@ -166,7 +172,7 @@ begin
       if umsig_cpu(24 downto 22) = "110" then
         gmux(to_integer(unsigned(sel))) <= buss;
       elsif umsig_cpu(31 downto 28) = "1111" then
-        gmux(to_integer(unsigned(sel))) <= buttons or x"0000";
+        gmux(to_integer(unsigned(sel))) <= buttons & "00000000000";
       end if;
     end if;             
   end process;

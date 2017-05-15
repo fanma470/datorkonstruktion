@@ -14,8 +14,8 @@ end umem;
 
 architecture behavioral of umem is
 
-  type k1 is array (15 downto 0) of std_logic_vector(7 downto 0);  -- k1
-  type k2 is array (3 downto 0) of std_logic_vector(7 downto 0);  -- k1
+  type k1 is array (0 to 15) of std_logic_vector(7 downto 0);  -- k1
+  type k2 is array (0 to 3) of std_logic_vector(7 downto 0);  -- k1
   signal upc : integer := 0;
   signal supc : integer;  -- suPC return adress ANVANDS EJ
   type um is array (0 to 31) of std_logic_vector(31 downto 0);  -- uMinne
@@ -36,7 +36,7 @@ architecture behavioral of umem is
 
   --mappar till rätt operation
   signal op_mode : k1 := (x"0a", x"0b", x"0c", x"0f", x"11", x"13", x"14",
-                          x"14", x"16", x"18", x"19", others => (others => '0'));
+                          x"16", x"18", x"19", others => (others => '0'));
   --mappar till rätt addresseringsmod
   signal address_mode : k2 := (x"03", x"04", x"05", x"07");
 
@@ -99,8 +99,8 @@ begin
     if rising_edge(clk) then
       case seq is
         when "0000" => upc <= upc + 1;
-        when "0001" => upc <= to_integer(unsigned(address_mode(to_integer(unsigned(m)))));
-        when "0010" => upc <= to_integer(unsigned(op_mode(to_integer(unsigned(op)))));
+        when "0001" => upc <= to_integer(unsigned(op_mode(to_integer(unsigned(op)))));
+        when "0010" => upc <= to_integer(unsigned(address_mode(to_integer(unsigned(m)))));
         when "0011" => upc <= 0;
         when "0100" =>
           if z = '1' then
