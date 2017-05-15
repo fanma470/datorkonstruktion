@@ -34,7 +34,7 @@ PART=xc6slx16-3-csg324
 
 
 cpu.%: S=top.vhd cpu.vhd umem.vhd vga_motor.vhd
-cpu.%: T= #dekoder_tb.vhd
+cpu.%: T=topp_tb.vhd
 cpu.%: U=Nexys3.ucf
 
 

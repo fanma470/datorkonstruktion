@@ -20,15 +20,14 @@ architecture behavioral of umem is
   signal supc : integer;  -- suPC return adress ANVANDS EJ
   type um is array (0 to 31) of std_logic_vector(31 downto 0);  -- uMinne
 
-  signal umem : um := (x"00f80000", x"008a0000", x"00001000", x"00780800",
-                       x"00fa0800", x"00780000", x"00b80800", x"02400000",
-                       x"09840000", x"01380800", x"00b01800", x"01901800",
-                       x"02800000", x"09800000", x"01301800", x"03800000",
-                       x"0a800000", x"01301800", x"02800000", x"0d800000",
-                       x"01301800", x"03800000", x"00410000", x"1a008000",
-                       x"01306000", x"00002970", x"00581800", x"000041c0",
-                       x"00021800", x"005a1800", x"00007800", others => x"00000000");
-  
+  signal umem : um := (x"07c00000", x"04400000", x"00010000", x"03c08000",
+                       x"07c08000", x"03c00000", x"05c08000", x"12000000",
+                       x"4c000000", x"09c08000", x"05a18000", x"0ca18000",
+                       x"14000000", x"46000000", x"09a18000", x"14000000",
+                       x"5602800e", x"14000000", x"6602800e", x"02c18000",
+                       x"00240000", x"00028013", x"00028013", x"00240000",
+                       x"F0218000", x"0d618000", others => x"00000000");
+
     -- z n c o l
   signal op : std_logic_vector(3 downto 0);
   --signal grx : std_logic_vector(1 downto 0);
@@ -36,12 +35,13 @@ architecture behavioral of umem is
   signal address  : std_logic_vector(7 downto 0);
 
   --mappar till rätt operation
-  signal op_mode : k1;
+  signal op_mode : k1 := (x"0a", x"0b", x"0c", x"0f", x"11", x"13", x"14",
+                          x"14", x"16", x"18", x"19", others => (others => '0'));
   --mappar till rätt addresseringsmod
-  signal address_mode : k2;
+  signal address_mode : k2 := (x"03", x"04", x"05", x"07");
 
   signal seq : std_logic_vector(3 downto 0);
-  signal uaddr : std_logic_vector(13 downto 0);
+  signal uaddr : std_logic_vector(14 downto 0);
   signal curr_umsig : std_logic_vector(31 downto 0);  -- internal umsig
 
   signal z : std_logic := '0';            -- z flagga
@@ -58,9 +58,9 @@ begin
   umsig <= umem(upc);                   --skickas ut
   
   curr_umsig <= umem(upc);              --intern
-  seq <= curr_umsig(17 downto 14);
-  uaddr <= curr_umsig(13 downto 0);
-  lc_inst <= curr_umsig(19 downto 18);
+  seq <= curr_umsig(18 downto 15);
+  uaddr <= curr_umsig(14 downto 0);
+  lc_inst <= curr_umsig(20 downto 19);
 
   
   --ir

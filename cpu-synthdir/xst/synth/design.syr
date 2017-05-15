@@ -5,7 +5,7 @@ Parameter TMPDIR set to tmpdir
 
 
 Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> 
 
@@ -80,11 +80,11 @@ WARNING:HDLCompiler:871 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../
 Elaborating entity <umem> (architecture <behavioral>) from library <work>.
 WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 75: Assignment to c ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 76: Assignment to o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 179: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 184: Assignment to z ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 185: Assignment to n ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 186: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 187: Assignment to o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 202: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 207: Assignment to z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 208: Assignment to n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 209: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 210: Assignment to o ignored, since the identifier is never used
 
 Elaborating entity <VGA_MOTOR> (architecture <Behavioral>) from library <work>.
 
@@ -100,7 +100,6 @@ Unit <top> synthesized.
 
 Synthesizing Unit <cpu>.
     Related source file is "/edu/leoar200/Desktop/proj/cpu.vhd".
-WARNING:Xst:647 - Input <buttons<4:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <color<7:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 4x16-bit single-port RAM <Mram_gmux> for signal <gmux>.
     Found 256x16-bit single-port RAM <Mram_pm> for signal <pm>.
@@ -110,10 +109,10 @@ WARNING:Xst:647 - Input <color<7:0>> is never used. This port will be preserved 
     Found 16-bit register for signal <ar>.
     Found 4-bit register for signal <sr>.
     Found 16-bit register for signal <ir>.
-    Found 8-bit adder for signal <pc[7]_GND_5_o_add_12_OUT> created at line 1241.
-    Found 16-bit adder for signal <ar[15]_buss[15]_add_25_OUT> created at line 170.
-    Found 16-bit subtractor for signal <ar[15]_buss[15]_sub_27_OUT<15:0>> created at line 171.
-    Found 16-bit 8-to-1 multiplexer for signal <buss> created at line 86.
+    Found 8-bit adder for signal <pc[7]_GND_5_o_add_11_OUT> created at line 1241.
+    Found 16-bit adder for signal <ar[15]_buss[15]_add_27_OUT> created at line 193.
+    Found 16-bit subtractor for signal <ar[15]_buss[15]_sub_29_OUT<15:0>> created at line 194.
+    Found 16-bit 8-to-1 multiplexer for signal <buss> created at line 107.
     Summary:
 	inferred   2 RAM(s).
 	inferred   2 Adder/Subtractor(s).
@@ -134,7 +133,7 @@ WARNING:Xst:2999 - Signal 'address_mode', unconnected in block 'umem', is tied t
     Found 32-bit register for signal <upc>.
     Found 32-bit register for signal <supc>.
     Found 32-bit register for signal <lc>.
-    Found 15-bit adder for signal <n0064[14:0]> created at line 107.
+    Found 16-bit adder for signal <n0064[15:0]> created at line 107.
     Found 32-bit adder for signal <upc[31]_GND_6_o_add_23_OUT> created at line 132.
     Found 32-bit subtractor for signal <lc[31]_GND_6_o_sub_10_OUT<31:0>> created at line 88.
     Summary:
@@ -182,8 +181,8 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <picMem>
 	inferred  64 D-type flip-flop(s).
 	inferred   7 Comparator(s).
 Unit <VGA_MOTOR> synthesized.
-RTL-Simplification CPUSTAT: 0.08 
-RTL-BasicInf CPUSTAT: 0.17 
+RTL-Simplification CPUSTAT: 0.07 
+RTL-BasicInf CPUSTAT: 0.18 
 RTL-BasicOpt CPUSTAT: 0.00 
 RTL-Remain-Bus CPUSTAT: 0.01 
 
@@ -204,7 +203,7 @@ Macro Statistics
  7x7-bit multiplier                                    : 1
 # Adders/Subtractors                                   : 10
  10-bit adder                                          : 2
- 15-bit adder                                          : 1
+ 16-bit adder                                          : 1
  16-bit addsub                                         : 1
  2-bit adder                                           : 1
  20-bit adder                                          : 2
@@ -372,7 +371,7 @@ Macro Statistics
  10x7-to-13-bit MAC                                    : 1
  7x7-to-13-bit MAC                                     : 1
 # Adders/Subtractors                                   : 3
- 15-bit adder                                          : 1
+ 16-bit adder                                          : 1
  16-bit addsub                                         : 1
  32-bit adder                                          : 1
 # Counters                                             : 5
@@ -404,6 +403,38 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ycoord_9> has a con
 WARNING:Xst:1293 - FF/Latch <sr_1> has a constant value of 0 in block <cpu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sr_2> has a constant value of 0 in block <cpu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sr_3> has a constant value of 0 in block <cpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <lc_31> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_30> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_29> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_28> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_27> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_26> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_25> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_24> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_23> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_22> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_21> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_20> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_19> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_18> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_17> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_16> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_15> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_14> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_13> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_12> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_11> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_10> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_9> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_8> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_7> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_6> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_5> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_4> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_3> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_2> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_1> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <lc_0> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <supc_5> of sequential type is unconnected in block <umem>.
 WARNING:Xst:2677 - Node <supc_6> of sequential type is unconnected in block <umem>.
 WARNING:Xst:2677 - Node <supc_7> of sequential type is unconnected in block <umem>.
@@ -469,49 +500,12 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <supc_1> has a const
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <supc_2> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <supc_3> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <supc_4> has a constant value of 0 in block <umem>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <lc_0> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_1> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_2> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_3> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_4> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_5> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_6> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_7> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_8> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_9> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_10> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_11> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_12> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_13> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_14> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_15> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_16> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_17> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_18> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_19> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_20> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_21> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_22> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_23> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_24> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_25> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_26> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_27> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_28> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_29> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_30> of sequential type is unconnected in block <umem>.
-WARNING:Xst:2677 - Node <lc_31> of sequential type is unconnected in block <umem>.
 
 Optimizing unit <VGA_MOTOR> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 0) on block top, actual ratio is 2.
-FlipFlop cpuComp/umemComp/upc_0 has been replicated 1 time(s)
-FlipFlop cpuComp/umemComp/upc_1 has been replicated 2 time(s)
-FlipFlop cpuComp/umemComp/upc_2 has been replicated 2 time(s)
-FlipFlop cpuComp/umemComp/upc_3 has been replicated 1 time(s)
-FlipFlop cpuComp/umemComp/upc_4 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -519,8 +513,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 153
- Flip-Flops                                            : 153
+# Registers                                            : 114
+ Flip-Flops                                            : 114
 
 =========================================================================
 
@@ -543,22 +537,22 @@ Top Level Output File Name         : design.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 322
+# BELS                             : 301
 #      GND                         : 1
 #      INV                         : 4
 #      LUT1                        : 22
-#      LUT2                        : 7
-#      LUT3                        : 15
-#      LUT4                        : 14
-#      LUT5                        : 41
-#      LUT6                        : 75
-#      MUXCY                       : 60
-#      MUXF7                       : 17
+#      LUT2                        : 4
+#      LUT3                        : 23
+#      LUT4                        : 23
+#      LUT5                        : 51
+#      LUT6                        : 58
+#      MUXCY                       : 44
+#      MUXF7                       : 21
 #      VCC                         : 1
-#      XORCY                       : 65
-# FlipFlops/Latches                : 153
+#      XORCY                       : 49
+# FlipFlops/Latches                : 114
 #      FD                          : 4
-#      FDE                         : 127
+#      FDE                         : 88
 #      FDRE                        : 22
 # RAMS                             : 21
 #      RAM16X1S                    : 16
@@ -579,18 +573,18 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             153  out of  18224     0%  
- Number of Slice LUTs:                  194  out of   9112     2%  
-    Number used as Logic:               178  out of   9112     1%  
+ Number of Slice Registers:             114  out of  18224     0%  
+ Number of Slice LUTs:                  201  out of   9112     2%  
+    Number used as Logic:               185  out of   9112     2%  
     Number used as Memory:               16  out of   2176     0%  
        Number used as RAM:               16
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    261
-   Number with an unused Flip Flop:     108  out of    261    41%  
-   Number with an unused LUT:            67  out of    261    25%  
-   Number of fully used LUT-FF pairs:    86  out of    261    32%  
-   Number of unique control sets:        15
+ Number of LUT Flip Flop pairs used:    246
+   Number with an unused Flip Flop:     132  out of    246    53%  
+   Number with an unused LUT:            45  out of    246    18%  
+   Number of fully used LUT-FF pairs:    69  out of    246    28%  
+   Number of unique control sets:        14
 
 IO Utilization: 
  Number of IOs:                          24
@@ -623,7 +617,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 175   |
+clk                                | BUFGP                  | 136   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -634,7 +628,7 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 6.754ns (Maximum Frequency: 148.070MHz)
+   Minimum period: 6.830ns (Maximum Frequency: 146.412MHz)
    Minimum input arrival time before clock: 2.101ns
    Maximum output required time after clock: 5.000ns
    Maximum combinational path delay: No path found
@@ -645,25 +639,45 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.754ns (frequency: 148.070MHz)
-  Total number of paths / destination ports: 14216 / 543
+  Clock period: 6.830ns (frequency: 146.412MHz)
+  Total number of paths / destination ports: 15102 / 472
 -------------------------------------------------------------------------
-Delay:               6.754ns (Levels of Logic = 1)
-  Source:            vga_motorComp/Ypixel_5 (FF)
-  Destination:       vga_motorComp/Mram_picMem4 (RAM)
+Delay:               6.830ns (Levels of Logic = 21)
+  Source:            cpuComp/Mram_pm (RAM)
+  Destination:       cpuComp/ar_15 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: vga_motorComp/Ypixel_5 to vga_motorComp/Mram_picMem4
+  Data Path: cpuComp/Mram_pm to cpuComp/ar_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_5 (vga_motorComp/Ypixel_5)
-     DSP48A1:A2->P9        4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_9_o_MuLt_24_OUT (vga_motorComp/pMemAddr<9>)
-     RAMB16BWER:ADDRB10        0.350          vga_motorComp/Mram_picMem4
+     RAMB8BWER:CLKBRDCLK->DOBDO10   34   1.850   1.320  cpuComp/Mram_pm (cpuComp/sel<0>)
+     RAM16X1S:A0->O        1   0.205   0.580  cpuComp/Mram_gmux1 (cpuComp/_n0087<0>)
+     LUT5:I4->O            1   0.205   0.000  cpuComp/Mmux_buss12_F (N28)
+     MUXF7:I0->O           9   0.131   0.830  cpuComp/Mmux_buss12 (cpuComp/buss<0>)
+     LUT3:I2->O            1   0.205   0.000  cpuComp/Maddsub__n0106_lut<0> (cpuComp/Maddsub__n0106_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  cpuComp/Maddsub__n0106_cy<0> (cpuComp/Maddsub__n0106_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<1> (cpuComp/Maddsub__n0106_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<2> (cpuComp/Maddsub__n0106_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<3> (cpuComp/Maddsub__n0106_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<4> (cpuComp/Maddsub__n0106_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<5> (cpuComp/Maddsub__n0106_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<6> (cpuComp/Maddsub__n0106_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<7> (cpuComp/Maddsub__n0106_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<8> (cpuComp/Maddsub__n0106_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<9> (cpuComp/Maddsub__n0106_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<10> (cpuComp/Maddsub__n0106_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<11> (cpuComp/Maddsub__n0106_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<12> (cpuComp/Maddsub__n0106_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  cpuComp/Maddsub__n0106_cy<13> (cpuComp/Maddsub__n0106_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  cpuComp/Maddsub__n0106_cy<14> (cpuComp/Maddsub__n0106_cy<14>)
+     XORCY:CI->O           1   0.180   0.580  cpuComp/Maddsub__n0106_xor<15> (cpuComp/_n0106<15>)
+     LUT6:I5->O            1   0.205   0.000  cpuComp/Mmux__n010971 (cpuComp/_n0109<15>)
+     FDE:D                     0.102          cpuComp/ar_15
     ----------------------------------------
-    Total                      6.754ns (5.357ns logic, 1.397ns route)
-                                       (79.3% logic, 20.7% route)
+    Total                      6.830ns (3.521ns logic, 3.309ns route)
+                                       (51.6% logic, 48.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -713,14 +727,14 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    6.754|         |         |         |
+clk            |    6.830|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 7.56 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 7.95 secs
  
 --> 
 
@@ -728,6 +742,6 @@ Total CPU time to Xst completion: 7.56 secs
 Total memory usage is 463648 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  115 (   0 filtered)
+Number of warnings :  114 (   0 filtered)
 Number of infos    :    7 (   0 filtered)
 

@@ -1,0 +1,26 @@
+# //  ModelSim SE 6.5c Aug 27 2009 Linux 2.6.32-696.1.1.el6.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim topp_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.topp_tb(behavioral)#1
+# Loading work.top(behavioral)#1
+# Loading work.cpu(behavioral)#1
+# Loading work.umem(behavioral)#1
+# Loading work.vga_motor(behavioral)#1
+add wave -r /*
+run 10 ms
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /topp_tb/uut/vga_motorcomp
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 5 ns  Iteration: 1  Instance: /topp_tb/uut/vga_motorcomp

@@ -41,8 +41,29 @@ architecture behavioral of cpu is
 
   signal umsig_cpu : std_logic_vector(31 downto 0);
   signal tobuss : std_logic_vector(2 downto 0);
-
-  signal pm : prog_mem;
+  --load        0000
+  --store       0001
+  --add         0010
+  --sub         0011
+  --and         0100
+  --bra         0101
+  --bne         0110
+  --beq         0111
+  --btn         1000
+  --vga         1001
+  signal pm : prog_mem := ("0000000000101000",  --lda gr0 d40 --sätt x i mitten
+                           "0000010000011110",  --lda gr1 d30 --y i mitten
+                           "0000100000000000",  --lda gr2 0   --stäng av pennan
+                           "0001100011111111",  --store gr2 i pm(255)
+                           --main loop test
+                           "0000010010000001",  --lda gr1 x81
+                           "1001010000000000",
+                           "0000000000000000",  --lda gr0 d42
+                           "0000000000000000",
+                           "1001000000000000",
+                           "0101000000000000",
+                           others => (others => '0'));
+  
   signal curr_pm : std_logic_vector(15 downto 0) := x"0000";
 
   signal testsignal : unsigned(7 downto 0) := x"00";
@@ -86,7 +107,7 @@ begin
   with tobuss select buss <=
     ir when "001",
     curr_pm when "010",
-    x"0000" or pc when "011",
+    x"00" & pc when "011",
     ar when "100",
     helpr when "101",
     gmux(to_integer(unsigned(sel))) when "110",
@@ -133,7 +154,7 @@ begin
       if umsig_cpu(24 downto 22) = "101" then
         vga_data <= buss(7 downto 0);
       end if;
-    end if;             
+    end if;                     
   end process;
   
 
@@ -144,6 +165,8 @@ begin
     if rising_edge(clk) then
       if umsig_cpu(24 downto 22) = "110" then
         gmux(to_integer(unsigned(sel))) <= buss;
+      elsif umsig_cpu(31 downto 28) = "1111" then
+        gmux(to_integer(unsigned(sel))) <= buttons or x"0000";
       end if;
     end if;             
   end process;
