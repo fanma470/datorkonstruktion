@@ -45,7 +45,8 @@ architecture behavioral of cpu is
   signal pm : prog_mem;
   signal curr_pm : std_logic_vector(15 downto 0) := x"0000";
 
-  signal testsignal : std_logic_vector(7 downto 0) := x"00";
+  signal testsignal : unsigned(7 downto 0) := x"00";
+  signal Xsignal : unsigned(7 downto 0) := "00101000";
 
   signal check_c : std_logic_vector(16 downto 0);
 
@@ -134,7 +135,9 @@ begin
       end if;
     end if;             
   end process;
+  
 
+  
   -- GRX
   process(clk)
   begin

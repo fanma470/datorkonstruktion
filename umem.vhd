@@ -14,10 +14,10 @@ end umem;
 
 architecture behavioral of umem is
 
-  type k1 is array (7 downto 0) of std_logic_vector(7 downto 0);  -- k1
-  type k2 is array (7 downto 0) of std_logic_vector(7 downto 0);  -- k1
+  type k1 is array (15 downto 0) of std_logic_vector(7 downto 0);  -- k1
+  type k2 is array (3 downto 0) of std_logic_vector(7 downto 0);  -- k1
   signal upc : integer := 0;
-  signal supc : integer;  -- suPC return adress
+  signal supc : integer;  -- suPC return adress ANVANDS EJ
   type um is array (0 to 31) of std_logic_vector(31 downto 0);  -- uMinne
 
   signal umem : um := (x"00f80000", x"008a0000", x"00001000", x"00780800",
@@ -28,12 +28,16 @@ architecture behavioral of umem is
                        x"01301800", x"03800000", x"00410000", x"1a008000",
                        x"01306000", x"00002970", x"00581800", x"000041c0",
                        x"00021800", x"005a1800", x"00007800", others => x"00000000");
+  
     -- z n c o l
   signal op : std_logic_vector(3 downto 0);
   --signal grx : std_logic_vector(1 downto 0);
   signal m  : std_logic_vector(1 downto 0);
   signal address  : std_logic_vector(7 downto 0);
+
+  --mappar till rätt operation
   signal op_mode : k1;
+  --mappar till rätt addresseringsmod
   signal address_mode : k2;
 
   signal seq : std_logic_vector(3 downto 0);
@@ -46,7 +50,7 @@ architecture behavioral of umem is
   signal o : std_logic := '0';            -- o flagga
   signal l : std_logic := '0';            -- l flagga
 
-  signal lc : integer := 0;
+  signal lc : integer := 0;             -- ANVANDS EJ
   signal lc_inst : std_logic_vector(1 downto 0) := "00";  -- loop count instruction
   
 begin

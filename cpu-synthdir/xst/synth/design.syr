@@ -4,8 +4,8 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to tmpdir
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> 
 
@@ -78,13 +78,13 @@ Elaborating entity <cpu> (architecture <behavioral>) from library <work>.
 WARNING:HDLCompiler:871 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 39: Using initial value "0000000000000000" for helpr since it is never assigned
 
 Elaborating entity <umem> (architecture <behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 71: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 72: Assignment to o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 176: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 181: Assignment to z ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 182: Assignment to n ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 183: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 184: Assignment to o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 75: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 76: Assignment to o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 179: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 184: Assignment to z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 185: Assignment to n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 186: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 187: Assignment to o ignored, since the identifier is never used
 
 Elaborating entity <VGA_MOTOR> (architecture <Behavioral>) from library <work>.
 
@@ -111,9 +111,9 @@ WARNING:Xst:647 - Input <color<7:0>> is never used. This port will be preserved 
     Found 4-bit register for signal <sr>.
     Found 16-bit register for signal <ir>.
     Found 8-bit adder for signal <pc[7]_GND_5_o_add_12_OUT> created at line 1241.
-    Found 16-bit adder for signal <ar[15]_buss[15]_add_25_OUT> created at line 167.
-    Found 16-bit subtractor for signal <ar[15]_buss[15]_sub_27_OUT<15:0>> created at line 168.
-    Found 16-bit 8-to-1 multiplexer for signal <buss> created at line 85.
+    Found 16-bit adder for signal <ar[15]_buss[15]_add_25_OUT> created at line 170.
+    Found 16-bit subtractor for signal <ar[15]_buss[15]_sub_27_OUT<15:0>> created at line 171.
+    Found 16-bit 8-to-1 multiplexer for signal <buss> created at line 86.
     Summary:
 	inferred   2 RAM(s).
 	inferred   2 Adder/Subtractor(s).
@@ -129,15 +129,16 @@ WARNING:Xst:2999 - Signal 'umem', unconnected in block 'umem', is tied to its in
 WARNING:Xst:2999 - Signal 'op_mode', unconnected in block 'umem', is tied to its initial value.
 WARNING:Xst:2999 - Signal 'address_mode', unconnected in block 'umem', is tied to its initial value.
     Found 32x32-bit single-port Read Only RAM <Mram_umem> for signal <umem>.
-    Found 8x8-bit dual-port Read Only RAM <Mram_address_mode> for signal <address_mode>.
+    Found 16x8-bit single-port Read Only RAM <Mram_op_mode> for signal <op_mode>.
+    Found 4x8-bit single-port Read Only RAM <Mram_address_mode> for signal <address_mode>.
     Found 32-bit register for signal <upc>.
     Found 32-bit register for signal <supc>.
     Found 32-bit register for signal <lc>.
-    Found 15-bit adder for signal <n0065[14:0]> created at line 103.
-    Found 32-bit adder for signal <upc[31]_GND_6_o_add_23_OUT> created at line 128.
-    Found 32-bit subtractor for signal <lc[31]_GND_6_o_sub_10_OUT<31:0>> created at line 84.
+    Found 15-bit adder for signal <n0064[14:0]> created at line 107.
+    Found 32-bit adder for signal <upc[31]_GND_6_o_add_23_OUT> created at line 132.
+    Found 32-bit subtractor for signal <lc[31]_GND_6_o_sub_10_OUT<31:0>> created at line 88.
     Summary:
-	inferred   2 RAM(s).
+	inferred   3 RAM(s).
 	inferred   3 Adder/Subtractor(s).
 	inferred  96 D-type flip-flop(s).
 	inferred  17 Multiplexer(s).
@@ -181,22 +182,23 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <picMem>
 	inferred  64 D-type flip-flop(s).
 	inferred   7 Comparator(s).
 Unit <VGA_MOTOR> synthesized.
-RTL-Simplification CPUSTAT: 0.09 
+RTL-Simplification CPUSTAT: 0.08 
 RTL-BasicInf CPUSTAT: 0.17 
-RTL-BasicOpt CPUSTAT: 0.01 
-RTL-Remain-Bus CPUSTAT: 0.00 
+RTL-BasicOpt CPUSTAT: 0.00 
+RTL-Remain-Bus CPUSTAT: 0.01 
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 6
+# RAMs                                                 : 7
+ 16x8-bit single-port Read Only RAM                    : 1
  256x16-bit single-port RAM                            : 1
  32x32-bit single-port Read Only RAM                   : 1
  4x16-bit single-port RAM                              : 1
  4x2-bit single-port Read Only RAM                     : 1
+ 4x8-bit single-port Read Only RAM                     : 1
  6144x8-bit dual-port RAM                              : 1
- 8x8-bit dual-port Read Only RAM                       : 1
 # Multipliers                                          : 2
  10x7-bit multiplier                                   : 1
  7x7-bit multiplier                                    : 1
@@ -319,6 +321,28 @@ Unit <cpu> synthesized (advanced).
 
 Synthesizing (advanced) Unit <umem>.
 The following registers are absorbed into counter <lc>: 1 register on signal <lc>.
+INFO:Xst:3048 - The small RAM <Mram_op_mode> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 8-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <ir>            |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3048 - The small RAM <Mram_address_mode> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <ir<9:8>>       |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
 INFO:Xst:3048 - The small RAM <Mram_umem> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
@@ -330,37 +354,20 @@ INFO:Xst:3048 - The small RAM <Mram_umem> will be implemented on LUTs in order t
     |     diA            | connected to signal <GND>           |          |
     |     doA            | connected to signal <uaddr>         |          |
     -----------------------------------------------------------------------
-INFO:Xst:3031 - HDL ADVISOR - The RAM <Mram_address_mode> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
-    -----------------------------------------------------------------------
-    | ram_type           | Distributed                         |          |
-    -----------------------------------------------------------------------
-    | Port A                                                              |
-    |     aspect ratio   | 8-word x 8-bit                      |          |
-    |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <ir>            |          |
-    |     diA            | connected to signal <GND>           |          |
-    |     doA            | connected to internal node          |          |
-    -----------------------------------------------------------------------
-    | Port B                                                              |
-    |     aspect ratio   | 8-word x 8-bit                      |          |
-    |     weB            | connected to signal <GND>           | high     |
-    |     addrB          | connected to signal <("0",ir<9:8>)> |          |
-    |     diB            | connected to signal <GND>           |          |
-    |     doB            | connected to internal node          |          |
-    -----------------------------------------------------------------------
 Unit <umem> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 6
+# RAMs                                                 : 7
+ 16x8-bit single-port distributed Read Only RAM        : 1
  256x16-bit dual-port block RAM                        : 1
  32x32-bit single-port distributed Read Only RAM       : 1
  4x16-bit single-port distributed RAM                  : 1
  4x2-bit single-port distributed Read Only RAM         : 1
+ 4x8-bit single-port distributed Read Only RAM         : 1
  6144x8-bit dual-port block RAM                        : 1
- 8x8-bit dual-port distributed Read Only RAM           : 1
 # MACs                                                 : 2
  10x7-to-13-bit MAC                                    : 1
  7x7-to-13-bit MAC                                     : 1
@@ -642,18 +649,18 @@ Timing constraint: Default period analysis for Clock 'clk'
   Total number of paths / destination ports: 14216 / 543
 -------------------------------------------------------------------------
 Delay:               6.754ns (Levels of Logic = 1)
-  Source:            vga_motorComp/Ypixel_9 (FF)
+  Source:            vga_motorComp/Ypixel_5 (FF)
   Destination:       vga_motorComp/Mram_picMem4 (RAM)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: vga_motorComp/Ypixel_9 to vga_motorComp/Mram_picMem4
+  Data Path: vga_motorComp/Ypixel_5 to vga_motorComp/Mram_picMem4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_9 (vga_motorComp/Ypixel_9)
-     DSP48A1:A6->P3        4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_9_o_MuLt_24_OUT (vga_motorComp/pMemAddr<3>)
-     RAMB16BWER:ADDRB4         0.350          vga_motorComp/Mram_picMem4
+     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_5 (vga_motorComp/Ypixel_5)
+     DSP48A1:A2->P9        4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_9_o_MuLt_24_OUT (vga_motorComp/pMemAddr<9>)
+     RAMB16BWER:ADDRB10        0.350          vga_motorComp/Mram_picMem4
     ----------------------------------------
     Total                      6.754ns (5.357ns logic, 1.397ns route)
                                        (79.3% logic, 20.7% route)
@@ -712,15 +719,15 @@ clk            |    6.754|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.81 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 7.56 secs
  
 --> 
 
 
-Total memory usage is 463640 kilobytes
+Total memory usage is 463648 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  115 (   0 filtered)
-Number of infos    :    6 (   0 filtered)
+Number of infos    :    7 (   0 filtered)
 
