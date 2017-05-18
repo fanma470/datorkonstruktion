@@ -51,23 +51,44 @@ architecture behavioral of cpu is
   --beq         0111
   --btn         1000
   --vga         1001
-  signal pm : prog_mem := ("0000000100000000",  --00 lda gr0 d40 --sätt x i mitten00
+  signal pm : prog_mem := ("0000000100000000",  --00 load, gr0, d40   INIT
                            "0000000000101000",  --01 d40
-                           "0000010100000011",  --02 lda gr1 d30 --y i mitten
+                           "0000010100000000",  --02 load gr1, d30
                            "0000000000011110",  --03 d30
-                           "0000100100000101",  --04 lda gr2 0   --stäng av pennan
-                           "0000000000000000",   --05 d0
-                           "0001100111111111",  --06 store gr2 i pm(255)
-                           "1111111111111111",
-                           --main loop test
-                           "0000010100001000",  --07 lda gr1 x81
-                           "0000000010000001",  --08 x81
-                           "1001010000000000",  --09 vhd gr1
-                           "0000000100001011",  --0a lda gr0 d42
-                           "0000000000101010",  --0b d42
-                           "1001000000000000",  --vhd gr0
-                           "0101000100000000",  --bra 00
+                           "0000100100000000",  --04 load gr2 0
+                           "0000000000000000",  --05
+                           "0001100000000000",  --06 store gr2, pmFF
+                           --MAIN LOOP
+                           "0000110100000000",  --07 load gr3 pmFF
+                           "0000000011111111",  --08 pmFF
+                           "0010110100000000",  --09 add gr3, 0
+                           "0000000000000000",  --0A d0
+                           "0110000100001101",  --0B bne btn_check
+                           "0000000000001101",  --0C ADRESS T BTN_CHECK <::::::.
+                           --UPPKNAPP
+                           "1000110000000000",  --0D btn gr3
+                           "0100110100000000",  --0E and gr3, xFFFE
+                           "1111111111111110",  --0F xFFFE
+                           "0011110100000000",  --10 sub gr3, x0001
+                           "0000000000000001",  --11 x0001
+                           "0111000100010110",  --12 beq btn_up
+                           "0000000000010110",  --13 ADRESS T BTN UP ///TEST
+                                                --hoppar t 16
+
+                           --test
+                           "0101000100000000",  --XX bra main_loop
+                           "0000000000000111",  --XX adress t main_loop
+                           
+                           "0000000100000000",  --16
+                           "0000000010000001",
+                           "1001000000000000",
+                           "0000000100000000",
                            "0000000000000000",
+                           "1001000000000000",
+                           --test
+                           "0101000100000000",  --XX bra main_loop
+                           "0000000000000111",  --XX adress t main_loop
+                           
                            others => "0000000000000000");
   
   signal curr_pm : std_logic_vector(15 downto 0) := x"0000";
@@ -107,7 +128,14 @@ begin
   --umsig <= umem(to_integer(unsigned(upc)));
   tobuss <= umsig_cpu(27 downto 25);
   curr_pm <= pm(to_integer(unsigned(asr)));
-  sel <= curr_pm(11 downto 10);
+
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      sel <= curr_pm(11 downto 10);
+    end if;
+  end process;
+  
   
   --till buss
   with tobuss select buss <=
@@ -172,7 +200,7 @@ begin
       if umsig_cpu(24 downto 22) = "110" then
         gmux(to_integer(unsigned(sel))) <= buss;
       elsif umsig_cpu(31 downto 28) = "1111" then
-        gmux(to_integer(unsigned(sel))) <= buttons & "00000000000";
+        gmux(to_integer(unsigned(sel))) <=  "00000000000" & buttons;
       end if;
     end if;             
   end process;

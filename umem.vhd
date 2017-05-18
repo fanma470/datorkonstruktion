@@ -20,13 +20,13 @@ architecture behavioral of umem is
   signal supc : integer;  -- suPC return adress ANVANDS EJ
   type um is array (0 to 31) of std_logic_vector(31 downto 0);  -- uMinne
 
-  signal umem : um := (x"07c00000", x"04400000", x"00010000", x"03c08000",
-                       x"07c08000", x"03c00000", x"05c08000", x"12000000",
-                       x"4c000000", x"09c08000", x"05a18000", x"0ca18000",
-                       x"14000000", x"46000000", x"09a18000", x"14000000",
+  signal umem : um := (x"07c00000", x"04600000", x"00010000", x"03c08000",
+                       x"07e08000", x"03c00000", x"05c08000", x"12000000",
+                       x"4c000000", x"09c08000", x"05818000", x"0c818000",
+                       x"14000000", x"46000000", x"09818000", x"14000000",
                        x"5602800e", x"14000000", x"6602800e", x"02c18000",
-                       x"00240000", x"00028013", x"00028013", x"00240000",
-                       x"F0218000", x"0d618000", others => x"00000000");
+                       x"00040000", x"00028013", x"00028013", x"00040000",
+                       x"F0018000", x"0d418000", others => x"00000000");
 
     -- z n c o l
   signal op : std_logic_vector(3 downto 0);

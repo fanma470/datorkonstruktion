@@ -83,8 +83,8 @@ begin
           data_buf <= data;
         else
           case command is
-            when "01" => Xcoord <= unsigned("0000000000" or data);
-            when "10" => Ycoord <= unsigned("0000000000" or data);
+            when "01" => Xcoord <= unsigned("0000000000" or "00" & data);
+            when "10" => Ycoord <= unsigned("0000000000" or "00" & data);
             when "11" => we <= data(0);
             when others => null;
           end case;
