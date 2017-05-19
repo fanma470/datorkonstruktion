@@ -151,7 +151,7 @@ begin
           else
             upc <= upc + 1;
           end if;
-        when "1111" => upc <= 0;
+        --when "1111" => upc <= 0;
         when others => null;
       end case;
     end if;

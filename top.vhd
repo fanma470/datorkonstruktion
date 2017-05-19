@@ -30,8 +30,8 @@ end top;
 architecture behavioral of top is
 
   -- signaler
-  signal vga_data : std_logic_vector(7 downto 0);
-  signal buttons : std_logic_vector(4 downto 0);
+  signal vga_data : std_logic_vector(7 downto 0) := x"00";
+  signal buttons : std_logic_vector(4 downto 0) := "00000";
   -- komponenter
 
   component cpu
@@ -56,11 +56,11 @@ architecture behavioral of top is
   end component;
   
 begin
-  buttons(0) <= btnu;
-  buttons(1) <= btnl;
-  buttons(2) <= btnd;
-  buttons(3) <= btnr;
-  buttons(4) <= btns;
+  buttons(0) <= not btnu;
+  buttons(1) <= not btnl;
+  buttons(2) <= not btnd;
+  buttons(3) <= not btnr;
+  buttons(4) <= not btns;
   
   --port map cpu
   cpuComp : cpu port map (
