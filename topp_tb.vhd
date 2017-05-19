@@ -22,11 +22,11 @@ architecture Behavioral of topp_tb is
 
   signal clk : std_logic := '0';
   signal sw : std_logic_vector(7 downto 0);
-  signal btnu : std_logic;
-  signal btnd : std_logic;
-  signal btnl : std_logic;
-  signal btnr : std_logic;
-  signal btns : std_logic;
+  signal btnu : std_logic := '1';
+  signal btnd : std_logic := '0';
+  signal btnl : std_logic := '0';
+  signal btnr : std_logic := '0';
+  signal btns : std_logic := '0';
 begin  -- Behavioral
 
   uut: top port map (
@@ -39,6 +39,7 @@ begin  -- Behavioral
     btns => btns
     );
 
-clk <= not clk after 5 ns;
+  clk <= not clk after 5 ns;
+  --btnu <= not btnu after 100 ns;
 
 end Behavioral;

@@ -75,17 +75,17 @@ main_loop:
 	bne	btn_check
 
 	btn	gr3			--UPPKNAPP
-	and 	gr3, X"FFFE"
+	and 	gr3, X"0001"
 	sub 	gr3, x"0001"		
 	beq	btn_up
 
 	btn	gr3
-	and	gr3, X"FFFB"		--NEDKNAPP
+	and	gr3, X"0004"		--NEDKNAPP
 	sub	gr3, X"0004"
 	beq	btn_down
 
 	btn	gr3			--HÖGER
-	and	gr3, X"FFF7"
+	and	gr3, X"0008"
 	sub	gr3, X"0008"
 	beq	btn_right
 
