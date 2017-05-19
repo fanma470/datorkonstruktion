@@ -27,9 +27,6 @@ architecture behavioral of cpu is
   -- z n c o l
   signal sr : std_logic_vector(3 downto 0) := "0000";  --statusregister
   
- 
-  signal btons : std_logic_vector(4 downto 0) := "00000";
-
   -- register o mux
   signal sel : std_logic_vector(1 downto 0) := "00";  -- Mux SEL
   type grx is array (0 to 3) of std_logic_vector(15 downto 0);  -- grX
@@ -78,7 +75,7 @@ architecture behavioral of cpu is
                            "0000000000000100",  --14 x0004
                            "0011110100000000",  --15 sub gr3 04
                            "0000000000000100",  --16 04
-                           "0111000000000111",  --17 beq btn_down <<<<<<<<<<<<<
+                           "0111000001000000",  --17 beq btn_down <<<<<<<<<<<<<
                            --HOGERKNAPP
                            "1000110000000000",  --18 btn gr3
                            "0100110100000000",  --19 and gr3 x0008
@@ -125,6 +122,20 @@ architecture behavioral of cpu is
                            "1111111111111111",  --3d 1
                            "0001110011111111",  --3e store pmFF
                            "0101000000001000",  --3f bra main_loop <<<<<<<<<<<
+                           --BTN_DOWN
+                           "0001010011111110",  --40 store gr1, FE
+                           "0011010000111100",  --41 sub gr1 d60
+                           "0000010011111110",  --42 load gr1 FE
+                           "0111000000001000",  --43 beq main_loop <<<<<<<<<<<
+                           "0010010000000001",  --44 add gr1 1
+                           "0000110100000000",  --45 load gr3 x82
+                           "0000000010000010",  --46 x82
+                           "1001110000000000",  --47 vga gr3
+                           "1001010000000000",  --48 vga gr1
+                           "0000110100000000",  --49 load gr3 1
+                           "1111111111111111",  --4a 1
+                           "0001110011111111",  --4b store pmFF
+                           "0101000000001000",  --4c bra main_loop <<<<<<<<<<<
                            
                            others => "0000000000000000");
   
@@ -153,12 +164,6 @@ architecture behavioral of cpu is
   end component;
 
 begin
-
-  btons(0) <= btnu;
-  btons(1) <= btnl;
-  btons(2) <= btnd;
-  btons(3) <= btnr;
-  btons(4) <= btns;
 
   --port map umem
   umemComp : umem port map (
@@ -240,10 +245,20 @@ begin
   process(clk)
   begin
     if rising_edge(clk) then
+      --gmux(to_integer(unsigned(sel))) <=  "00000000000" & btns & btnr & btnd & btnl & btnu;
       if umsig_cpu(24 downto 22) = "110" then
         gmux(to_integer(unsigned(sel))) <= buss;
       elsif umsig_cpu(31 downto 28) = "1111" then
-        gmux(to_integer(unsigned(sel))) <=  "00000000000" & buttons;
+        --gmux(to_integer(unsigned(sel))) <=  "00000000000" & btns & btnr & btnd & btnl & btnu;
+      if sel = "00" then
+        gmux(0) <= "00000000000" & btns & btnr & btnd & btnl & btnu;
+       elsif sel = "01" then
+         gmux(1) <= "00000000000" & btns & btnr & btnd & btnl & btnu;
+       elsif sel = "10" then
+        gmux(2) <= "00000000000" & btns & btnr & btnd & btnl & btnu;
+       else
+        gmux(3) <= "00000000000" & btns & btnr & btnd & btnl & btnu;
+       end if;
       end if;
     end if;             
   end process;

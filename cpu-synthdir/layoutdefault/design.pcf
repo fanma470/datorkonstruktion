@@ -1,34 +1,34 @@
 //! **************************************************************************
-// Written by: Map M.81d on Fri May 19 12:46:12 2017
+// Written by: Map M.81d on Fri May 19 15:56:22 2017
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "clk" LOCATE = SITE "V10" LEVEL 1;
-COMP "vgaGreen<0>" LOCATE = SITE "P8" LEVEL 1;
-COMP "vgaGreen<1>" LOCATE = SITE "T6" LEVEL 1;
-COMP "vgaGreen<2>" LOCATE = SITE "V6" LEVEL 1;
-COMP "Hsync" LOCATE = SITE "N6" LEVEL 1;
-COMP "btnd" LOCATE = SITE "C9" LEVEL 1;
+COMP "Vsync" LOCATE = SITE "P7" LEVEL 1;
 COMP "sw<0>" LOCATE = SITE "T10" LEVEL 1;
-COMP "btnl" LOCATE = SITE "C4" LEVEL 1;
 COMP "sw<1>" LOCATE = SITE "T9" LEVEL 1;
 COMP "sw<2>" LOCATE = SITE "V9" LEVEL 1;
 COMP "sw<3>" LOCATE = SITE "M8" LEVEL 1;
-COMP "btnr" LOCATE = SITE "D9" LEVEL 1;
 COMP "sw<4>" LOCATE = SITE "N8" LEVEL 1;
-COMP "btns" LOCATE = SITE "B8" LEVEL 1;
-COMP "Vsync" LOCATE = SITE "P7" LEVEL 1;
 COMP "sw<5>" LOCATE = SITE "U8" LEVEL 1;
-COMP "btnu" LOCATE = SITE "A8" LEVEL 1;
 COMP "sw<6>" LOCATE = SITE "V8" LEVEL 1;
-COMP "vgaBlue<1>" LOCATE = SITE "R7" LEVEL 1;
 COMP "sw<7>" LOCATE = SITE "T5" LEVEL 1;
-COMP "vgaBlue<2>" LOCATE = SITE "T7" LEVEL 1;
 COMP "vgaRed<0>" LOCATE = SITE "U7" LEVEL 1;
 COMP "vgaRed<1>" LOCATE = SITE "V7" LEVEL 1;
 COMP "vgaRed<2>" LOCATE = SITE "N7" LEVEL 1;
-PIN vga_motorComp/Maddsub_Ypixel[9]_PWR_9_o_MuLt_24_OUT_pins<92> = BEL
-        "vga_motorComp/Maddsub_Ypixel[9]_PWR_9_o_MuLt_24_OUT" PINNAME CLK;
+COMP "btnd" LOCATE = SITE "C9" LEVEL 1;
+COMP "btnl" LOCATE = SITE "C4" LEVEL 1;
+COMP "btnr" LOCATE = SITE "D9" LEVEL 1;
+COMP "btns" LOCATE = SITE "B8" LEVEL 1;
+COMP "btnu" LOCATE = SITE "A8" LEVEL 1;
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "Hsync" LOCATE = SITE "N6" LEVEL 1;
+COMP "vgaGreen<0>" LOCATE = SITE "P8" LEVEL 1;
+COMP "vgaGreen<1>" LOCATE = SITE "T6" LEVEL 1;
+COMP "vgaGreen<2>" LOCATE = SITE "V6" LEVEL 1;
+COMP "vgaBlue<1>" LOCATE = SITE "R7" LEVEL 1;
+COMP "vgaBlue<2>" LOCATE = SITE "T7" LEVEL 1;
+PIN vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT_pins<92> = BEL
+        "vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT" PINNAME CLK;
 PIN cpuComp/Mram_pm_pins<18> = BEL "cpuComp/Mram_pm" PINNAME CLKAWRCLK;
 PIN cpuComp/Mram_pm_pins<19> = BEL "cpuComp/Mram_pm" PINNAME CLKBRDCLK;
 PIN vga_motorComp/Mram_picMem4_pins<26> = BEL "vga_motorComp/Mram_picMem4"
@@ -63,25 +63,47 @@ TIMEGRP sys_clk_pin = BEL "cpuComp/pc_7" BEL "cpuComp/pc_6" BEL "cpuComp/pc_5"
         "cpuComp/ar_9" BEL "cpuComp/ar_8" BEL "cpuComp/ar_7" BEL
         "cpuComp/ar_6" BEL "cpuComp/ar_5" BEL "cpuComp/ar_4" BEL
         "cpuComp/ar_3" BEL "cpuComp/ar_2" BEL "cpuComp/ar_1" BEL
-        "cpuComp/ar_0" BEL "cpuComp/sr_0" BEL "cpuComp/asr_7" BEL
-        "cpuComp/asr_6" BEL "cpuComp/asr_5" BEL "cpuComp/asr_4" BEL
-        "cpuComp/asr_3" BEL "cpuComp/asr_2" BEL "cpuComp/asr_1" BEL
-        "cpuComp/asr_0" BEL "cpuComp/sel_1" BEL "cpuComp/sel_0" BEL
-        "cpuComp/umemComp/upc_4" BEL "cpuComp/umemComp/upc_3" BEL
-        "cpuComp/umemComp/upc_2" BEL "cpuComp/umemComp/upc_1" BEL
-        "cpuComp/umemComp/upc_0" BEL "vga_motorComp/Ypixel_9" BEL
-        "vga_motorComp/Ypixel_8" BEL "vga_motorComp/Ypixel_7" BEL
-        "vga_motorComp/Ypixel_6" BEL "vga_motorComp/Ypixel_5" BEL
-        "vga_motorComp/Ypixel_4" BEL "vga_motorComp/Ypixel_3" BEL
-        "vga_motorComp/Ypixel_2" BEL "vga_motorComp/Ypixel_1" BEL
-        "vga_motorComp/Ypixel_0" BEL "vga_motorComp/Xpixel_9" BEL
-        "vga_motorComp/Xpixel_8" BEL "vga_motorComp/Xpixel_7" BEL
-        "vga_motorComp/Xpixel_6" BEL "vga_motorComp/Xpixel_5" BEL
-        "vga_motorComp/Xpixel_4" BEL "vga_motorComp/Xpixel_3" BEL
-        "vga_motorComp/Xpixel_2" BEL "vga_motorComp/Xpixel_1" BEL
-        "vga_motorComp/Xpixel_0" BEL "vga_motorComp/ClkDiv_1" BEL
-        "vga_motorComp/ClkDiv_0" PIN
-        "vga_motorComp/Maddsub_Ypixel[9]_PWR_9_o_MuLt_24_OUT_pins<92>" BEL
+        "cpuComp/ar_0" BEL "cpuComp/sr_0" BEL "cpuComp/gmux_3_15" BEL
+        "cpuComp/gmux_3_14" BEL "cpuComp/gmux_3_13" BEL "cpuComp/gmux_3_12"
+        BEL "cpuComp/gmux_3_11" BEL "cpuComp/gmux_3_10" BEL "cpuComp/gmux_3_9"
+        BEL "cpuComp/gmux_3_8" BEL "cpuComp/gmux_3_7" BEL "cpuComp/gmux_3_6"
+        BEL "cpuComp/gmux_3_5" BEL "cpuComp/gmux_3_4" BEL "cpuComp/gmux_3_3"
+        BEL "cpuComp/gmux_3_2" BEL "cpuComp/gmux_3_1" BEL "cpuComp/gmux_3_0"
+        BEL "cpuComp/gmux_2_15" BEL "cpuComp/gmux_2_14" BEL
+        "cpuComp/gmux_2_13" BEL "cpuComp/gmux_2_12" BEL "cpuComp/gmux_2_11"
+        BEL "cpuComp/gmux_2_10" BEL "cpuComp/gmux_2_9" BEL "cpuComp/gmux_2_8"
+        BEL "cpuComp/gmux_2_7" BEL "cpuComp/gmux_2_6" BEL "cpuComp/gmux_2_5"
+        BEL "cpuComp/gmux_2_4" BEL "cpuComp/gmux_2_3" BEL "cpuComp/gmux_2_2"
+        BEL "cpuComp/gmux_2_1" BEL "cpuComp/gmux_2_0" BEL "cpuComp/gmux_0_15"
+        BEL "cpuComp/gmux_0_14" BEL "cpuComp/gmux_0_13" BEL
+        "cpuComp/gmux_0_12" BEL "cpuComp/gmux_0_11" BEL "cpuComp/gmux_0_10"
+        BEL "cpuComp/gmux_0_9" BEL "cpuComp/gmux_0_8" BEL "cpuComp/gmux_0_7"
+        BEL "cpuComp/gmux_0_6" BEL "cpuComp/gmux_0_5" BEL "cpuComp/gmux_0_4"
+        BEL "cpuComp/gmux_0_3" BEL "cpuComp/gmux_0_2" BEL "cpuComp/gmux_0_1"
+        BEL "cpuComp/gmux_0_0" BEL "cpuComp/gmux_1_15" BEL "cpuComp/gmux_1_14"
+        BEL "cpuComp/gmux_1_13" BEL "cpuComp/gmux_1_12" BEL
+        "cpuComp/gmux_1_11" BEL "cpuComp/gmux_1_10" BEL "cpuComp/gmux_1_9" BEL
+        "cpuComp/gmux_1_8" BEL "cpuComp/gmux_1_7" BEL "cpuComp/gmux_1_6" BEL
+        "cpuComp/gmux_1_5" BEL "cpuComp/gmux_1_4" BEL "cpuComp/gmux_1_3" BEL
+        "cpuComp/gmux_1_2" BEL "cpuComp/gmux_1_1" BEL "cpuComp/gmux_1_0" BEL
+        "cpuComp/asr_7" BEL "cpuComp/asr_6" BEL "cpuComp/asr_5" BEL
+        "cpuComp/asr_4" BEL "cpuComp/asr_3" BEL "cpuComp/asr_2" BEL
+        "cpuComp/asr_1" BEL "cpuComp/asr_0" BEL "cpuComp/sel_1" BEL
+        "cpuComp/sel_0" BEL "cpuComp/umemComp/upc_4" BEL
+        "cpuComp/umemComp/upc_3" BEL "cpuComp/umemComp/upc_2" BEL
+        "cpuComp/umemComp/upc_1" BEL "cpuComp/umemComp/upc_0" BEL
+        "vga_motorComp/Ypixel_9" BEL "vga_motorComp/Ypixel_8" BEL
+        "vga_motorComp/Ypixel_7" BEL "vga_motorComp/Ypixel_6" BEL
+        "vga_motorComp/Ypixel_5" BEL "vga_motorComp/Ypixel_4" BEL
+        "vga_motorComp/Ypixel_3" BEL "vga_motorComp/Ypixel_2" BEL
+        "vga_motorComp/Ypixel_1" BEL "vga_motorComp/Ypixel_0" BEL
+        "vga_motorComp/Xpixel_9" BEL "vga_motorComp/Xpixel_8" BEL
+        "vga_motorComp/Xpixel_7" BEL "vga_motorComp/Xpixel_6" BEL
+        "vga_motorComp/Xpixel_5" BEL "vga_motorComp/Xpixel_4" BEL
+        "vga_motorComp/Xpixel_3" BEL "vga_motorComp/Xpixel_2" BEL
+        "vga_motorComp/Xpixel_1" BEL "vga_motorComp/Xpixel_0" BEL
+        "vga_motorComp/ClkDiv_1" BEL "vga_motorComp/ClkDiv_0" PIN
+        "vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT_pins<92>" BEL
         "vga_motorComp/command_1" BEL "vga_motorComp/command_0" BEL
         "vga_motorComp/data_buf_7" BEL "vga_motorComp/data_buf_6" BEL
         "vga_motorComp/data_buf_5" BEL "vga_motorComp/data_buf_4" BEL
@@ -96,8 +118,11 @@ TIMEGRP sys_clk_pin = BEL "cpuComp/pc_7" BEL "cpuComp/pc_6" BEL "cpuComp/pc_5"
         "vga_motorComp/xcoord_6" BEL "vga_motorComp/xcoord_5" BEL
         "vga_motorComp/xcoord_4" BEL "vga_motorComp/xcoord_3" BEL
         "vga_motorComp/xcoord_2" BEL "vga_motorComp/xcoord_1" BEL
-        "vga_motorComp/xcoord_0" BEL "vga_motorComp/we" BEL "clk_BUFGP/BUFG"
-        PIN "cpuComp/Mram_pm_pins<18>" PIN "cpuComp/Mram_pm_pins<19>" PIN
+        "vga_motorComp/xcoord_0" BEL "vga_motorComp/we" BEL
+        "cpuComp/umemComp/upc_0_1" BEL "cpuComp/umemComp/upc_4_1" BEL
+        "cpuComp/umemComp/upc_2_1" BEL "cpuComp/umemComp/upc_3_1" BEL
+        "cpuComp/umemComp/upc_1_1" BEL "clk_BUFGP/BUFG" PIN
+        "cpuComp/Mram_pm_pins<18>" PIN "cpuComp/Mram_pm_pins<19>" PIN
         "vga_motorComp/Mram_picMem4_pins<26>" PIN
         "vga_motorComp/Mram_picMem4_pins<27>" PIN
         "vga_motorComp/Mram_picMem3_pins<26>" PIN
@@ -105,14 +130,7 @@ TIMEGRP sys_clk_pin = BEL "cpuComp/pc_7" BEL "cpuComp/pc_6" BEL "cpuComp/pc_5"
         "vga_motorComp/Mram_picMem2_pins<26>" PIN
         "vga_motorComp/Mram_picMem2_pins<27>" PIN
         "vga_motorComp/Mram_picMem1_pins<26>" PIN
-        "vga_motorComp/Mram_picMem1_pins<27>" BEL "cpuComp/Mram_gmux1" BEL
-        "cpuComp/Mram_gmux10" BEL "cpuComp/Mram_gmux11" BEL
-        "cpuComp/Mram_gmux12" BEL "cpuComp/Mram_gmux13" BEL
-        "cpuComp/Mram_gmux14" BEL "cpuComp/Mram_gmux15" BEL
-        "cpuComp/Mram_gmux16" BEL "cpuComp/Mram_gmux2" BEL
-        "cpuComp/Mram_gmux3" BEL "cpuComp/Mram_gmux4" BEL "cpuComp/Mram_gmux5"
-        BEL "cpuComp/Mram_gmux6" BEL "cpuComp/Mram_gmux7" BEL
-        "cpuComp/Mram_gmux8" BEL "cpuComp/Mram_gmux9";
+        "vga_motorComp/Mram_picMem1_pins<27>";
 TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
 SCHEMATIC END;
 

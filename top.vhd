@@ -52,6 +52,7 @@ begin
   buttons(2) <= btnd;
   buttons(3) <= btnr;
   buttons(4) <= btns;
+
   
   --port map cpu
   cpuComp : cpu port map (
