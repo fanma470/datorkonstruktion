@@ -58,9 +58,12 @@ architecture behavioral of cpu is
                            "0000100100000000",  --04 load gr2 0
                            "0000000000000000",  --05
                            "0001100100000000",  --06 store gr2, pmFF
-                           "1111111111111111",  --07 0
+                           "1111111111111111",  --07 1
                            --MAIN LOOP
                            "0000110011111111",  --08 load gr3 pmFF
+                                                --kanske
+                                                --ändra till adrmod2 här och
+                                                --lägga till rad med 111111
                            "0010110100000000",  --09 add gr3, 0
                            "0000000000000000",  --0A d0
                            "0110000000101011",  --0B bne btn_check <<<<<<<<<<<
