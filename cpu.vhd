@@ -8,6 +8,7 @@ entity cpu is
     clk : in std_logic;
     vga_data : out std_logic_vector(7 downto 0);
     buttons : in std_logic_vector(4 downto 0);
+    btnu, btnd, btnl, btnr, btns : in std_logic;
     color : in std_logic_vector(7 downto 0)
   );
 end cpu;
@@ -27,7 +28,7 @@ architecture behavioral of cpu is
   signal sr : std_logic_vector(3 downto 0) := "0000";  --statusregister
   
  
-
+  signal btons : std_logic_vector(4 downto 0) := "00000";
 
   -- register o mux
   signal sel : std_logic_vector(1 downto 0) := "00";  -- Mux SEL
@@ -152,6 +153,12 @@ architecture behavioral of cpu is
   end component;
 
 begin
+
+  btons(0) <= btnu;
+  btons(1) <= btnl;
+  btons(2) <= btnd;
+  btons(3) <= btnr;
+  btons(4) <= btns;
 
   --port map umem
   umemComp : umem port map (

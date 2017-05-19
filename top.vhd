@@ -2,28 +2,18 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
---TODO
---Hantera knapptryck
---sätta upp videominne
---se till att motorn kan hatera upplösningen
---knapptryck -> cpu som avbrott _> när umem hoppar till noll kolla
---avbrottsflagga -> specialrutin
---programmera uminne
---skriva assembler
---programmera "spel"
-
 
 entity top is
   port(
     -- in och utsignaler
-    clk, btns : in std_logic;
+    clk : in std_logic;
     vgaRed : out std_logic_vector(2 downto 0);
     vgaGreen : out std_logic_vector(2 downto 0);
     vgaBlue : out std_logic_vector(2 downto 1);
     Hsync : out std_logic;
     Vsync : out std_logic;
     sw : in std_logic_vector(7 downto 0);
-    btnu, btnd, btnl, btnr : in std_logic
+    btnu, btnd, btnl, btnr, btns : in std_logic
     );
 end top;
 
@@ -31,7 +21,7 @@ architecture behavioral of top is
 
   -- signaler
   signal vga_data : std_logic_vector(7 downto 0) := x"00";
-  signal buttons : std_logic_vector(4 downto 0) := "00000";
+  signal buttons : std_logic_vector(4 downto 0);
   -- komponenter
 
   component cpu
@@ -39,6 +29,7 @@ architecture behavioral of top is
       clk : in std_logic;
       vga_data : out std_logic_vector(7 downto 0);
       buttons : in std_logic_vector(4 downto 0);
+      btnu, btnd, btnl, btnr, btns : in std_logic;
       color : in std_logic_vector(7 downto 0)
       );
   end component;
@@ -56,18 +47,23 @@ architecture behavioral of top is
   end component;
   
 begin
-  buttons(0) <= not btnu;
-  buttons(1) <= not btnl;
-  buttons(2) <= not btnd;
-  buttons(3) <= not btnr;
-  buttons(4) <= not btns;
+  buttons(0) <= btnu;
+  buttons(1) <= btnl;
+  buttons(2) <= btnd;
+  buttons(3) <= btnr;
+  buttons(4) <= btns;
   
   --port map cpu
   cpuComp : cpu port map (
     clk => clk,
     vga_data => vga_data,
     buttons => buttons,
-    color => sw
+    color => sw,
+    btnu => btnu,
+    btnl => btnl,
+    btnd => btnd,
+    btnr => btnr,
+    btns => btns
 );
   
 
