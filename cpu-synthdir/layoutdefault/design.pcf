@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map M.81d on Mon May 15 16:06:44 2017
+// Written by: Map M.81d on Fri May 19 12:46:12 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -49,16 +49,16 @@ PIN vga_motorComp/Mram_picMem1_pins<27> = BEL "vga_motorComp/Mram_picMem1"
         PINNAME CLKB;
 TIMEGRP sys_clk_pin = BEL "cpuComp/pc_7" BEL "cpuComp/pc_6" BEL "cpuComp/pc_5"
         BEL "cpuComp/pc_4" BEL "cpuComp/pc_3" BEL "cpuComp/pc_2" BEL
-        "cpuComp/pc_1" BEL "cpuComp/pc_0" BEL "cpuComp/ir_15" BEL
+        "cpuComp/pc_1" BEL "cpuComp/pc_0" BEL "cpuComp/vga_data_7" BEL
+        "cpuComp/vga_data_6" BEL "cpuComp/vga_data_5" BEL "cpuComp/vga_data_4"
+        BEL "cpuComp/vga_data_3" BEL "cpuComp/vga_data_2" BEL
+        "cpuComp/vga_data_1" BEL "cpuComp/vga_data_0" BEL "cpuComp/ir_15" BEL
         "cpuComp/ir_14" BEL "cpuComp/ir_13" BEL "cpuComp/ir_12" BEL
         "cpuComp/ir_11" BEL "cpuComp/ir_10" BEL "cpuComp/ir_9" BEL
         "cpuComp/ir_8" BEL "cpuComp/ir_7" BEL "cpuComp/ir_6" BEL
         "cpuComp/ir_5" BEL "cpuComp/ir_4" BEL "cpuComp/ir_3" BEL
         "cpuComp/ir_2" BEL "cpuComp/ir_1" BEL "cpuComp/ir_0" BEL
-        "cpuComp/vga_data_7" BEL "cpuComp/vga_data_6" BEL "cpuComp/vga_data_5"
-        BEL "cpuComp/vga_data_4" BEL "cpuComp/vga_data_3" BEL
-        "cpuComp/vga_data_2" BEL "cpuComp/vga_data_1" BEL "cpuComp/vga_data_0"
-        BEL "cpuComp/ar_15" BEL "cpuComp/ar_14" BEL "cpuComp/ar_13" BEL
+        "cpuComp/ar_15" BEL "cpuComp/ar_14" BEL "cpuComp/ar_13" BEL
         "cpuComp/ar_12" BEL "cpuComp/ar_11" BEL "cpuComp/ar_10" BEL
         "cpuComp/ar_9" BEL "cpuComp/ar_8" BEL "cpuComp/ar_7" BEL
         "cpuComp/ar_6" BEL "cpuComp/ar_5" BEL "cpuComp/ar_4" BEL
@@ -66,20 +66,21 @@ TIMEGRP sys_clk_pin = BEL "cpuComp/pc_7" BEL "cpuComp/pc_6" BEL "cpuComp/pc_5"
         "cpuComp/ar_0" BEL "cpuComp/sr_0" BEL "cpuComp/asr_7" BEL
         "cpuComp/asr_6" BEL "cpuComp/asr_5" BEL "cpuComp/asr_4" BEL
         "cpuComp/asr_3" BEL "cpuComp/asr_2" BEL "cpuComp/asr_1" BEL
-        "cpuComp/asr_0" BEL "cpuComp/umemComp/upc_4" BEL
-        "cpuComp/umemComp/upc_3" BEL "cpuComp/umemComp/upc_2" BEL
-        "cpuComp/umemComp/upc_1" BEL "cpuComp/umemComp/upc_0" BEL
-        "vga_motorComp/Ypixel_9" BEL "vga_motorComp/Ypixel_8" BEL
-        "vga_motorComp/Ypixel_7" BEL "vga_motorComp/Ypixel_6" BEL
-        "vga_motorComp/Ypixel_5" BEL "vga_motorComp/Ypixel_4" BEL
-        "vga_motorComp/Ypixel_3" BEL "vga_motorComp/Ypixel_2" BEL
-        "vga_motorComp/Ypixel_1" BEL "vga_motorComp/Ypixel_0" BEL
-        "vga_motorComp/Xpixel_9" BEL "vga_motorComp/Xpixel_8" BEL
-        "vga_motorComp/Xpixel_7" BEL "vga_motorComp/Xpixel_6" BEL
-        "vga_motorComp/Xpixel_5" BEL "vga_motorComp/Xpixel_4" BEL
-        "vga_motorComp/Xpixel_3" BEL "vga_motorComp/Xpixel_2" BEL
-        "vga_motorComp/Xpixel_1" BEL "vga_motorComp/Xpixel_0" BEL
-        "vga_motorComp/ClkDiv_1" BEL "vga_motorComp/ClkDiv_0" PIN
+        "cpuComp/asr_0" BEL "cpuComp/sel_1" BEL "cpuComp/sel_0" BEL
+        "cpuComp/umemComp/upc_4" BEL "cpuComp/umemComp/upc_3" BEL
+        "cpuComp/umemComp/upc_2" BEL "cpuComp/umemComp/upc_1" BEL
+        "cpuComp/umemComp/upc_0" BEL "vga_motorComp/Ypixel_9" BEL
+        "vga_motorComp/Ypixel_8" BEL "vga_motorComp/Ypixel_7" BEL
+        "vga_motorComp/Ypixel_6" BEL "vga_motorComp/Ypixel_5" BEL
+        "vga_motorComp/Ypixel_4" BEL "vga_motorComp/Ypixel_3" BEL
+        "vga_motorComp/Ypixel_2" BEL "vga_motorComp/Ypixel_1" BEL
+        "vga_motorComp/Ypixel_0" BEL "vga_motorComp/Xpixel_9" BEL
+        "vga_motorComp/Xpixel_8" BEL "vga_motorComp/Xpixel_7" BEL
+        "vga_motorComp/Xpixel_6" BEL "vga_motorComp/Xpixel_5" BEL
+        "vga_motorComp/Xpixel_4" BEL "vga_motorComp/Xpixel_3" BEL
+        "vga_motorComp/Xpixel_2" BEL "vga_motorComp/Xpixel_1" BEL
+        "vga_motorComp/Xpixel_0" BEL "vga_motorComp/ClkDiv_1" BEL
+        "vga_motorComp/ClkDiv_0" PIN
         "vga_motorComp/Maddsub_Ypixel[9]_PWR_9_o_MuLt_24_OUT_pins<92>" BEL
         "vga_motorComp/command_1" BEL "vga_motorComp/command_0" BEL
         "vga_motorComp/data_buf_7" BEL "vga_motorComp/data_buf_6" BEL
