@@ -18,8 +18,8 @@
 # Loading work.cpu(behavioral)#1
 # Loading work.umem(behavioral)#1
 # Loading work.vga_motor(behavioral)#1
-add wave -r /*
-run 10 ms
+add wave -r sim:/topp_tb/uut/*
+run
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 0  Instance: /topp_tb/uut/vga_motorcomp
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE

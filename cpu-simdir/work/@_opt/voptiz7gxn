@@ -1,0 +1,156 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/edu/leoar200/Desktop/proj/cpu-simdir
+T_opt
+Z1 Vafhhl1fGUPL56`1TKCbfN1
+Z2 04 7 10 work topp_tb behavioral 1
+Z3 =1-00133b12653e-591f009e-2f0b3-7431
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OE;O;6.5c;42
+Ecpu
+Z7 w1495202978
+Z8 DPx17 __model_tech/ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z9 DPx17 __model_tech/ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+32
+Z10 8../cpu.vhd
+Z11 F../cpu.vhd
+l0
+L5
+Z12 Vm>@OYU[]I@0am9ZBj`O_T3
+Z13 OE;C;6.5c;42
+o+acc
+Z14 tExplicit 1
+Z15 !s100 Lm72JTeR[^dHOUfiXTF>30
+Abehavioral
+Z16 DEx42 /edu/leoar200/Desktop/proj/cpu-simdir/work 4 umem 0 22 35XVQ3fmNhH0gI=PnTP=F0
+R8
+R9
+Z17 DEx42 /edu/leoar200/Desktop/proj/cpu-simdir/work 3 cpu 0 22 m>@OYU[]I@0am9ZBj`O_T3
+32
+Z18 Mx2 17 __model_tech/ieee 14 std_logic_1164
+Z19 Mx1 17 __model_tech/ieee 11 numeric_std
+l166
+L18
+Z20 VZ4k9j1@J0egFdNQEDbm7Y1
+R13
+o+acc
+R14
+Z21 !s100 em8B@[z<iXZdiIBJf6RCg0
+Etop
+Z22 w1495201722
+R8
+R9
+32
+Z23 8../top.vhd
+Z24 F../top.vhd
+l0
+L6
+Z25 VBjY8L]zfaGG`Z_EBTWd2d2
+R13
+o+acc
+R14
+Z26 !s100 GAaLcbze]Gf9i1MCMT>m40
+Abehavioral
+Z27 DEx42 /edu/leoar200/Desktop/proj/cpu-simdir/work 9 vga_motor 0 22 S4G7H4`]RUX5k2T3UZ=WL1
+R17
+R8
+R9
+Z28 DEx42 /edu/leoar200/Desktop/proj/cpu-simdir/work 3 top 0 22 BjY8L]zfaGG`Z_EBTWd2d2
+32
+R18
+R19
+l49
+L20
+Z29 VUemQM_6ASXNaQD`5GkfN<0
+R13
+o+acc
+R14
+Z30 !s100 KW1kZEeIfkiAHX3lQUfiR1
+Etopp_tb
+Z31 w1495203227
+R8
+R9
+32
+Z32 8../topp_tb.vhd
+Z33 F../topp_tb.vhd
+l0
+L5
+Z34 VJJVJl<IaZVjD=hM9G0D;82
+R13
+o+acc
+R14
+Z35 !s100 FO3;Q_Az2WAd`eJoLL`Md1
+Abehavioral
+R28
+R8
+R9
+Z36 DEx42 /edu/leoar200/Desktop/proj/cpu-simdir/work 7 topp_tb 0 22 JJVJl<IaZVjD=hM9G0D;82
+32
+R18
+R19
+l30
+L8
+Z37 VONa@eYo[jHcUK4WVN12Hf3
+Z38 !s100 ozTBObl>?T=;HZG0[UP@L0
+R13
+o+acc
+R14
+Eumem
+Z39 w1495203972
+R8
+R9
+32
+Z40 8../umem.vhd
+Z41 F../umem.vhd
+l0
+L5
+Z42 V35XVQ3fmNhH0gI=PnTP=F0
+R13
+o+acc
+R14
+Z43 !s100 H3V<<:SDTR<HDT=DGO9QS1
+Abehavioral
+R8
+R9
+R16
+32
+R18
+R19
+l76
+L15
+Z44 VlM7`MQiIcgmRPiAP19@L^1
+R13
+o+acc
+R14
+Z45 !s100 CF_>Bh4Sao@<azXT21z9j2
+Evga_motor
+Z46 w1495096694
+Z47 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z48 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z49 8../vga_motor.vhd
+Z50 F../vga_motor.vhd
+l0
+L15
+Z51 VS4G7H4`]RUX5k2T3UZ=WL1
+R13
+32
+o+acc
+R14
+Z52 !s100 nzgCKj]7Roe5zjZcYFC<M3
+Abehavioral
+R8
+R9
+R27
+32
+R18
+R19
+l64
+L28
+Z53 Vk36UGXB_Q>FH]o1TPaF7>0
+R13
+o+acc
+R14
+Z54 !s100 bg0az@[aifkYkg4BTg?hB0
