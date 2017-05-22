@@ -5,7 +5,7 @@ Parameter TMPDIR set to tmpdir
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 
@@ -80,11 +80,11 @@ WARNING:HDLCompiler:871 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../
 Elaborating entity <umem> (architecture <behavioral>) from library <work>.
 WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 95: Assignment to c ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 96: Assignment to o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 323: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 328: Assignment to z ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 329: Assignment to n ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 330: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 331: Assignment to o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 335: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 340: Assignment to z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 341: Assignment to n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 342: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 343: Assignment to o ignored, since the identifier is never used
 
 Elaborating entity <VGA_MOTOR> (architecture <Behavioral>) from library <work>.
 
@@ -115,10 +115,10 @@ WARNING:Xst:647 - Input <color<7:0>> is never used. This port will be preserved 
     Found 4-bit register for signal <sr>.
     Found 2-bit register for signal <sel>.
     Found 8-bit adder for signal <pc[7]_GND_5_o_add_11_OUT> created at line 1241.
-    Found 16-bit adder for signal <ar[15]_buss[15]_add_53_OUT> created at line 313.
-    Found 16-bit subtractor for signal <GND_5_o_GND_5_o_sub_55_OUT<15:0>> created at line 314.
-    Found 16-bit 4-to-1 multiplexer for signal <sel[1]_gmux[3][15]_wide_mux_3_OUT> created at line 223.
-    Found 16-bit 8-to-1 multiplexer for signal <buss> created at line 217.
+    Found 16-bit adder for signal <ar[15]_buss[15]_add_53_OUT> created at line 325.
+    Found 16-bit subtractor for signal <GND_5_o_GND_5_o_sub_55_OUT<15:0>> created at line 326.
+    Found 16-bit 4-to-1 multiplexer for signal <sel[1]_gmux[3][15]_wide_mux_3_OUT> created at line 235.
+    Found 16-bit 8-to-1 multiplexer for signal <buss> created at line 229.
     Summary:
 	inferred   1 RAM(s).
 	inferred   2 Adder/Subtractor(s).
@@ -165,21 +165,21 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <picMem>
     Found 1-bit register for signal <Vsync>.
     Found 1-bit register for signal <blank>.
     Found 2-bit register for signal <command>.
-    Found 20-bit adder for signal <pMemAddr> created at line 99.
-    Found 20-bit adder for signal <n0102> created at line 106.
+    Found 20-bit adder for signal <pMemAddr> created at line 98.
+    Found 20-bit adder for signal <n0103> created at line 105.
     Found 2-bit adder for signal <ClkDiv[1]_GND_7_o_add_32_OUT> created at line 1241.
-    Found 10-bit adder for signal <Xpixel[9]_GND_7_o_add_36_OUT> created at line 145.
-    Found 10-bit adder for signal <Ypixel[9]_GND_7_o_add_44_OUT> created at line 180.
+    Found 10-bit adder for signal <Xpixel[9]_GND_7_o_add_36_OUT> created at line 144.
+    Found 10-bit adder for signal <Ypixel[9]_GND_7_o_add_44_OUT> created at line 179.
     Found 7x7-bit multiplier for signal <Ypixel[9]_PWR_10_o_MuLt_24_OUT> created at line 1399.
     Found 10x7-bit multiplier for signal <ycoord[9]_PWR_10_o_MuLt_26_OUT> created at line 1399.
-    Found 4x2-bit Read Only RAM for signal <_n0155>
-    Found 8-bit comparator equal for signal <n0000> created at line 74
-    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_41_o> created at line 159
-    Found 10-bit comparator greater for signal <Xpixel[9]_PWR_10_o_LessThan_42_o> created at line 159
-    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_50_o> created at line 195
-    Found 10-bit comparator greater for signal <Ypixel[9]_GND_7_o_LessThan_51_o> created at line 195
-    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_52_o> created at line 214
-    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_53_o> created at line 214
+    Found 4x2-bit Read Only RAM for signal <_n0156>
+    Found 8-bit comparator equal for signal <n0000> created at line 73
+    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_41_o> created at line 158
+    Found 10-bit comparator greater for signal <Xpixel[9]_PWR_10_o_LessThan_42_o> created at line 158
+    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_50_o> created at line 194
+    Found 10-bit comparator greater for signal <Ypixel[9]_GND_7_o_LessThan_51_o> created at line 194
+    Found 10-bit comparator greater for signal <PWR_10_o_Xpixel[9]_LessThan_52_o> created at line 213
+    Found 10-bit comparator greater for signal <GND_7_o_Ypixel[9]_LessThan_53_o> created at line 213
     Summary:
 	inferred   2 RAM(s).
 	inferred   2 Multiplier(s).
@@ -187,8 +187,8 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <picMem>
 	inferred  64 D-type flip-flop(s).
 	inferred   7 Comparator(s).
 Unit <VGA_MOTOR> synthesized.
-RTL-Simplification CPUSTAT: 0.08 
-RTL-BasicInf CPUSTAT: 0.21 
+RTL-Simplification CPUSTAT: 0.09 
+RTL-BasicInf CPUSTAT: 0.19 
 RTL-BasicOpt CPUSTAT: 0.00 
 RTL-Remain-Bus CPUSTAT: 0.01 
 
@@ -246,7 +246,7 @@ The following registers are absorbed into counter <ClkDiv>: 1 register on signal
 The following registers are absorbed into counter <Xpixel>: 1 register on signal <Xpixel>.
 The following registers are absorbed into counter <Ypixel>: 1 register on signal <Ypixel>.
 	Multiplier <Mmult_Ypixel[9]_PWR_10_o_MuLt_24_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_pMemAddr_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT>.
-	Multiplier <Mmult_ycoord[9]_PWR_10_o_MuLt_26_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_n0102_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_ycoord[9]_PWR_10_o_MuLt_26_OUT>.
+	Multiplier <Mmult_ycoord[9]_PWR_10_o_MuLt_26_OUT> in block <VGA_MOTOR> and adder/subtractor <Madd_n0103_Madd> in block <VGA_MOTOR> are combined into a MAC<Maddsub_ycoord[9]_PWR_10_o_MuLt_26_OUT>.
 INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorbing the following register(s): <tilePixel>
     -----------------------------------------------------------------------
     | ram_type           | Block                               |          |
@@ -256,7 +256,7 @@ INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorb
     |     mode           | read-first                          |          |
     |     clkA           | connected to signal <clk>           | rise     |
     |     weA            | connected to signal <we>            | high     |
-    |     addrA          | connected to signal <n0102>         |          |
+    |     addrA          | connected to signal <n0103>         |          |
     |     diA            | connected to signal <switches>      |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
@@ -272,7 +272,7 @@ INFO:Xst:3040 - The RAM <Mram_picMem> will be implemented as a BLOCK RAM, absorb
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
-INFO:Xst:3048 - The small RAM <Mram__n0155> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+INFO:Xst:3048 - The small RAM <Mram__n0156> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -540,13 +540,13 @@ Primitive and Black Box Usage:
 #      GND                         : 1
 #      INV                         : 4
 #      LUT1                        : 22
-#      LUT2                        : 8
+#      LUT2                        : 7
 #      LUT3                        : 22
 #      LUT4                        : 41
-#      LUT5                        : 60
-#      LUT6                        : 124
+#      LUT5                        : 61
+#      LUT6                        : 123
 #      MUXCY                       : 44
-#      MUXF7                       : 19
+#      MUXF7                       : 20
 #      VCC                         : 1
 #      XORCY                       : 49
 # FlipFlops/Latches                : 185
@@ -572,14 +572,14 @@ Selected Device : 6slx16csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:             185  out of  18224     1%  
- Number of Slice LUTs:                  281  out of   9112     3%  
-    Number used as Logic:               281  out of   9112     3%  
+ Number of Slice LUTs:                  280  out of   9112     3%  
+    Number used as Logic:               280  out of   9112     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    337
-   Number with an unused Flip Flop:     152  out of    337    45%  
-   Number with an unused LUT:            56  out of    337    16%  
-   Number of fully used LUT-FF pairs:   129  out of    337    38%  
+ Number of LUT Flip Flop pairs used:    336
+   Number with an unused Flip Flop:     151  out of    336    44%  
+   Number with an unused LUT:            56  out of    336    16%  
+   Number of fully used LUT-FF pairs:   129  out of    336    38%  
    Number of unique control sets:        16
 
 IO Utilization: 
@@ -636,20 +636,20 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 6.754ns (frequency: 148.070MHz)
-  Total number of paths / destination ports: 21750 / 543
+  Total number of paths / destination ports: 21749 / 543
 -------------------------------------------------------------------------
 Delay:               6.754ns (Levels of Logic = 1)
-  Source:            vga_motorComp/Ypixel_3 (FF)
+  Source:            vga_motorComp/Ypixel_8 (FF)
   Destination:       vga_motorComp/Mram_picMem4 (RAM)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: vga_motorComp/Ypixel_3 to vga_motorComp/Mram_picMem4
+  Data Path: vga_motorComp/Ypixel_8 to vga_motorComp/Mram_picMem4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_3 (vga_motorComp/Ypixel_3)
-     DSP48A1:A0->P5        4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT (vga_motorComp/pMemAddr<5>)
+     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_8 (vga_motorComp/Ypixel_8)
+     DSP48A1:A5->P5        4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT (vga_motorComp/pMemAddr<5>)
      RAMB16BWER:ADDRB6         0.350          vga_motorComp/Mram_picMem4
     ----------------------------------------
     Total                      6.754ns (5.357ns logic, 1.397ns route)
@@ -712,12 +712,12 @@ clk            |    6.754|         |         |         |
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.55 secs
+Total CPU time to Xst completion: 8.58 secs
  
 --> 
 
 
-Total memory usage is 464060 kilobytes
+Total memory usage is 464200 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  115 (   0 filtered)

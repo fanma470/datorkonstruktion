@@ -63,7 +63,6 @@ architecture Behavioral of VGA_MOTOR is
   
 begin
 
-
   --Hanterar kommadon från cpu eller whatever
   --kollar om data-signal har ändrats, isf
   --om commando = 00 (standardläget) uppdaterar vi commando enl data
@@ -85,7 +84,7 @@ begin
           case command is
             when "01" => Xcoord <= unsigned("0000000000" or "00" & data);
             when "10" => Ycoord <= unsigned("0000000000" or "00" & data);
-            when "11" => we <= data(0);
+            when "11" => we <= not we;
             when others => null;
           end case;
           command <= "00";
@@ -221,9 +220,6 @@ begin
   end process;
 
   
-
-
-
   -- Picture memory address composite
   --addr <= to_unsigned(20, 7) * Ypixel(8 downto 5) + Xpixel(9 downto 5);
 
