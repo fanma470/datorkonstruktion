@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Xst" timeStamp="Mon May 22 15:02:42 2017">
+  <application stringID="Xst" timeStamp="Mon May 22 15:32:07 2017">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -16,29 +16,25 @@
         </row>
         <row stringID="row" value="1">
           <item stringID="variable" value="LD_LIBRARY_PATH"/>
-          <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/ISE//lib/lin64:/sw/xilinx/ise_12.4i/ISE_DS/common/lib/lin64:/sw/xilinx/ise_12.4i/ISE_DS/ISE/lib/lin64:/sw/xilinx/ise_12.4i/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/sw/xilinx/ise_12.4i/ISE_DS/EDK/lib/lin64:/sw/xilinx/ise_12.4i/ISE_DS/ISE/lib/quickfix64:/usr/X11R6/lib"/>
+          <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/ISE//lib/lin64:/sw/xilinx/ise_12.4i/ISE_DS/common/lib/lin64:/sw/xilinx/ise_12.4i/ISE_DS/ISE/lib/lin64:/sw/xilinx/ise_12.4i/ISE_DS/ISE/smartmodel/lin64/installed_lin64/lib:/sw/xilinx/ise_12.4i/ISE_DS/EDK/lib/lin64"/>
         </row>
         <row stringID="row" value="2">
           <item stringID="variable" value="XILINX_EDK"/>
           <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/EDK"/>
         </row>
         <row stringID="row" value="3">
-          <item stringID="variable" value="XILINXD_LICENSE_FILE"/>
-          <item stringID="value" value="1706@license.isy.liu.se"/>
+          <item stringID="variable" value="PATH"/>
+          <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/ISE//bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/common/bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/PlanAhead/bin:/sw/xilinx/ise_12.4i/ISE_DS/ISE/bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/ISE/sysgen/util:/sw/xilinx/ise_12.4i/ISE_DS/EDK/bin/lin64:/sw/texlive/2016/bin/x86_64-pc-linux-gnu:/sw/texlive/JabRef:/sw/java/jdk-current-x86_64/bin:/sw/matlab/9.1/bin:/usr/kerberos/bin:/bin:/usr/bin:/usr/X11R6/bin:/sw/local5/bin:/sw/local/bin"/>
         </row>
         <row stringID="row" value="4">
-          <item stringID="variable" value="PATH"/>
-          <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/ISE//bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/common/bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/PlanAhead/bin:/sw/xilinx/ise_12.4i/ISE_DS/ISE/bin/lin64:/sw/xilinx/ise_12.4i/ISE_DS/ISE/sysgen/util:/sw/xilinx/ise_12.4i/ISE_DS/EDK/bin/lin64:/site/edu/da/mia/bin:/sw/mentor/modelsim_6.5e/modeltech/bin:/sw/xilinx/ise_12.4i/ISE_DS/ISE/../EDK/bin/lin64:/sw/texlive/2016/bin/x86_64-pc-linux-gnu:/sw/texlive/JabRef:/sw/java/jdk-current-x86_64/bin:/sw/matlab/9.1/bin:/usr/kerberos/bin:/bin:/usr/bin:/usr/X11R6/bin:/sw/local5/bin:/sw/local/bin:/sw/mentor/modelsim_10.0/modeltech/bin:/usr/local/bin"/>
-        </row>
-        <row stringID="row" value="5">
           <item stringID="variable" value="LMC_HOME"/>
           <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/ISE/smartmodel/lin64/installed_lin64"/>
         </row>
-        <row stringID="row" value="6">
+        <row stringID="row" value="5">
           <item stringID="variable" value="XILINX_PLANAHEAD"/>
           <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/PlanAhead"/>
         </row>
-        <row stringID="row" value="7">
+        <row stringID="row" value="6">
           <item stringID="variable" value="XILINX"/>
           <item stringID="value" value="/sw/xilinx/ise_12.4i/ISE_DS/ISE/"/>
         </row>
@@ -53,7 +49,7 @@
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="AMD A10 PRO-7800B R7, 12 Compute Cores 4C+8G   "/>
-          <item stringID="speed" value="1400.000 MHz"/>
+          <item stringID="speed" value="3500.000 MHz"/>
         </row>
       </table>
     </section>

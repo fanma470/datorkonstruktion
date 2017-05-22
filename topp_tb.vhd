@@ -23,9 +23,9 @@ architecture Behavioral of topp_tb is
   signal clk : std_logic := '0';
   signal sw : std_logic_vector(7 downto 0);
   signal btnu : std_logic := '0';
-  signal btnd : std_logic := '0';
+  signal btnd : std_logic := '1';
   signal btnl : std_logic := '0';
-  signal btnr : std_logic := '1';
+  signal btnr : std_logic := '0';
   signal btns : std_logic := '0';
 begin  -- Behavioral
 
@@ -40,6 +40,6 @@ begin  -- Behavioral
     );
 
   clk <= not clk after 5 ns;
-  --btnu <= not btnu after 100 ns;
+  btnd <= not btnd after 100 ns;
 
 end Behavioral;
