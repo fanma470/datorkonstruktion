@@ -4,8 +4,8 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to tmpdir
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> 
 
@@ -80,11 +80,11 @@ WARNING:HDLCompiler:871 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../
 Elaborating entity <umem> (architecture <behavioral>) from library <work>.
 WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 95: Assignment to c ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../umem.vhd" Line 96: Assignment to o ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 308: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 313: Assignment to z ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 314: Assignment to n ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 315: Assignment to c ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 316: Assignment to o ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 323: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 328: Assignment to z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 329: Assignment to n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 330: Assignment to c ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/edu/leoar200/Desktop/proj/cpu-synthdir/xst/synth/../../../cpu.vhd" Line 331: Assignment to o ignored, since the identifier is never used
 
 Elaborating entity <VGA_MOTOR> (architecture <Behavioral>) from library <work>.
 
@@ -115,10 +115,10 @@ WARNING:Xst:647 - Input <color<7:0>> is never used. This port will be preserved 
     Found 4-bit register for signal <sr>.
     Found 2-bit register for signal <sel>.
     Found 8-bit adder for signal <pc[7]_GND_5_o_add_11_OUT> created at line 1241.
-    Found 16-bit adder for signal <ar[15]_buss[15]_add_53_OUT> created at line 298.
-    Found 16-bit subtractor for signal <GND_5_o_GND_5_o_sub_55_OUT<15:0>> created at line 299.
-    Found 16-bit 4-to-1 multiplexer for signal <sel[1]_gmux[3][15]_wide_mux_3_OUT> created at line 208.
-    Found 16-bit 8-to-1 multiplexer for signal <buss> created at line 202.
+    Found 16-bit adder for signal <ar[15]_buss[15]_add_53_OUT> created at line 313.
+    Found 16-bit subtractor for signal <GND_5_o_GND_5_o_sub_55_OUT<15:0>> created at line 314.
+    Found 16-bit 4-to-1 multiplexer for signal <sel[1]_gmux[3][15]_wide_mux_3_OUT> created at line 223.
+    Found 16-bit 8-to-1 multiplexer for signal <buss> created at line 217.
     Summary:
 	inferred   1 RAM(s).
 	inferred   2 Adder/Subtractor(s).
@@ -187,10 +187,10 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <picMem>
 	inferred  64 D-type flip-flop(s).
 	inferred   7 Comparator(s).
 Unit <VGA_MOTOR> synthesized.
-RTL-Simplification CPUSTAT: 0.09 
-RTL-BasicInf CPUSTAT: 0.20 
+RTL-Simplification CPUSTAT: 0.08 
+RTL-BasicInf CPUSTAT: 0.21 
 RTL-BasicOpt CPUSTAT: 0.00 
-RTL-Remain-Bus CPUSTAT: 0.00 
+RTL-Remain-Bus CPUSTAT: 0.01 
 
 =========================================================================
 HDL Synthesis Report
@@ -639,18 +639,18 @@ Timing constraint: Default period analysis for Clock 'clk'
   Total number of paths / destination ports: 21750 / 543
 -------------------------------------------------------------------------
 Delay:               6.754ns (Levels of Logic = 1)
-  Source:            vga_motorComp/Ypixel_7 (FF)
+  Source:            vga_motorComp/Ypixel_3 (FF)
   Destination:       vga_motorComp/Mram_picMem4 (RAM)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: vga_motorComp/Ypixel_7 to vga_motorComp/Mram_picMem4
+  Data Path: vga_motorComp/Ypixel_3 to vga_motorComp/Mram_picMem4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_7 (vga_motorComp/Ypixel_7)
-     DSP48A1:A4->P1        4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT (vga_motorComp/pMemAddr<1>)
-     RAMB16BWER:ADDRB2         0.350          vga_motorComp/Mram_picMem4
+     FDRE:C->Q             5   0.447   0.714  vga_motorComp/Ypixel_3 (vga_motorComp/Ypixel_3)
+     DSP48A1:A0->P5        4   4.560   0.683  vga_motorComp/Maddsub_Ypixel[9]_PWR_10_o_MuLt_24_OUT (vga_motorComp/pMemAddr<5>)
+     RAMB16BWER:ADDRB6         0.350          vga_motorComp/Mram_picMem4
     ----------------------------------------
     Total                      6.754ns (5.357ns logic, 1.397ns route)
                                        (79.3% logic, 20.7% route)
@@ -712,12 +712,12 @@ clk            |    6.754|         |         |         |
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.57 secs
+Total CPU time to Xst completion: 8.55 secs
  
 --> 
 
 
-Total memory usage is 464092 kilobytes
+Total memory usage is 464060 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  115 (   0 filtered)

@@ -1,7 +1,7 @@
 Release 12.4 par M.81d (lin64)
 Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
-mux1-07.edu.isy.liu.se::  Fri May 19 17:02:34 2017
+mux1-09.edu.isy.liu.se::  Mon May 22 13:48:07 2017
 
 par -nopad -w -ol high design_map.ncd design.ncd design.pcf 
 
