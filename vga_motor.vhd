@@ -36,7 +36,8 @@ architecture Behavioral of VGA_MOTOR is
   signal	pMemAddr	: unsigned(19 downto 0);	-- Tile address
 
   signal        blank           : std_logic;                    -- blanking signal
-  signal        we              : std_logic := '1';             -- write enable
+  signal        we              : std_logic := '0';             -- write enable
+  signal        cursor          : std_logic;
 
   signal data_buf : std_logic_vector(7 downto 0) := x"00";  -- for storing previous data value
   signal command : std_logic_vector(1 downto 0) := "00";
@@ -103,6 +104,17 @@ begin
     if rising_edge(clk) then
       if we = '1' then
         picMem(to_integer(Ycoord*80 + Xcoord)) <= switches;
+      end if;
+    end if;
+  end process;
+
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if pMemAddr = Ycoord*80 + Xcoord then
+        cursor <= '1';
+      else
+        cursor <= '0';
       end if;
     end if;
   end process;
@@ -225,10 +237,11 @@ begin
 
 
   -- VGA generation
-  vgaRed(2) 	<= tilePixel(7);
-  vgaRed(1) 	<= tilePixel(6);
-  vgaRed(0) 	<= tilePixel(5);
-  vgaGreen(2)   <= tilePixel(4);
+  --vgaRed(2) 	<= tilePixel(7);
+  vgaRed(2)     <= (tilePixel(7) xor (cursor and not we)) and not blank;
+  vgaRed(1) 	<= (tilePixel(6) xor (cursor and not we)) and not blank;
+  vgaRed(0) 	<= (tilePixel(5) xor (cursor and not we)) and not blank;
+  vgaGreen(2)   <= (tilePixel(4) xor (cursor and not we)) and not blank;
   vgaGreen(1)   <= tilePixel(3);
   vgaGreen(0)   <= tilePixel(2);
   vgaBlue(2) 	<= tilePixel(1);
